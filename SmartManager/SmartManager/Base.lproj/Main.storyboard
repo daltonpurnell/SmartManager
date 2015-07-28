@@ -98,7 +98,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WPE-MC-bJN">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                            <rect key="frame" x="0.0" y="52" width="600" height="247"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <prototypes>
                                                 <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="y4N-fT-h7T">
@@ -109,18 +109,68 @@
                                                 </tableViewCell>
                                             </prototypes>
                                         </tableView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqC-VS-817">
+                                            <rect key="frame" x="8" y="8" width="584" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="FPB-TH-1hX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyV-EQ-b6x">
+                                            <rect key="frame" x="478" y="11" width="30" height="30"/>
+                                            <state key="normal" title="Call">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="callButtonTapped:" destination="V40-vh-u2E" eventType="touchUpInside" id="Ss1-6e-WBs"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4c-H6-TZU">
+                                            <rect key="frame" x="516" y="11" width="38" height="30"/>
+                                            <state key="normal" title="Email">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="emailButtonTapped:" destination="V40-vh-u2E" eventType="touchUpInside" id="30q-yI-lyH"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5J-xf-T5W">
+                                            <rect key="frame" x="562" y="11" width="30" height="30"/>
+                                            <state key="normal" title="Text">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="textButtonTapped:" destination="V40-vh-u2E" eventType="touchUpInside" id="m7T-42-Jp5"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="WPE-MC-bJN" secondAttribute="centerY" id="3eh-c8-Udy"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="WPE-MC-bJN" secondAttribute="bottom" constant="-8" id="Fb4-jF-w65"/>
-                                        <constraint firstItem="WPE-MC-bJN" firstAttribute="top" secondItem="v5c-fT-WvO" secondAttribute="topMargin" constant="-8" id="GtQ-Sz-I3r"/>
-                                        <constraint firstItem="WPE-MC-bJN" firstAttribute="leading" secondItem="v5c-fT-WvO" secondAttribute="leadingMargin" constant="-8" id="WQA-DE-Mbg"/>
-                                        <constraint firstAttribute="centerX" secondItem="WPE-MC-bJN" secondAttribute="centerX" id="fof-D5-qKF"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="WPE-MC-bJN" secondAttribute="trailing" constant="-8" id="zwK-9V-1e9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="WPE-MC-bJN" secondAttribute="bottom" constant="-8" id="06m-Qo-kSG"/>
+                                        <constraint firstItem="z5J-xf-T5W" firstAttribute="leading" secondItem="k4c-H6-TZU" secondAttribute="trailing" constant="8" id="1EL-mv-g8I"/>
+                                        <constraint firstItem="z5J-xf-T5W" firstAttribute="trailing" secondItem="v5c-fT-WvO" secondAttribute="trailingMargin" id="AVo-MD-plE"/>
+                                        <constraint firstItem="z5J-xf-T5W" firstAttribute="top" secondItem="v5c-fT-WvO" secondAttribute="topMargin" constant="3" id="DHM-Rb-pA9"/>
+                                        <constraint firstItem="JqC-VS-817" firstAttribute="trailing" secondItem="v5c-fT-WvO" secondAttribute="trailingMargin" id="MQ5-wO-1dS"/>
+                                        <constraint firstItem="k4c-H6-TZU" firstAttribute="centerY" secondItem="z5J-xf-T5W" secondAttribute="centerY" id="Pdn-eA-QH6"/>
+                                        <constraint firstItem="jyV-EQ-b6x" firstAttribute="centerY" secondItem="k4c-H6-TZU" secondAttribute="centerY" id="j01-z0-vfM"/>
+                                        <constraint firstItem="WPE-MC-bJN" firstAttribute="top" secondItem="v5c-fT-WvO" secondAttribute="topMargin" constant="44" id="jBc-tf-YOW"/>
+                                        <constraint firstItem="WPE-MC-bJN" firstAttribute="leading" secondItem="v5c-fT-WvO" secondAttribute="leadingMargin" constant="-8" id="m9f-7a-hyg"/>
+                                        <constraint firstItem="z5J-xf-T5W" firstAttribute="centerY" secondItem="JqC-VS-817" secondAttribute="centerY" id="oXi-hQ-L2E"/>
+                                        <constraint firstAttribute="centerX" secondItem="WPE-MC-bJN" secondAttribute="centerX" id="uPN-KZ-Jwi"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="JqC-VS-817" secondAttribute="bottom" constant="247" id="uo9-4i-0Mx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="WPE-MC-bJN" secondAttribute="trailing" constant="-8" id="v77-DR-bvH"/>
+                                        <constraint firstItem="JqC-VS-817" firstAttribute="leading" secondItem="v5c-fT-WvO" secondAttribute="leadingMargin" id="xOC-DT-NHu"/>
+                                        <constraint firstItem="k4c-H6-TZU" firstAttribute="leading" secondItem="jyV-EQ-b6x" secondAttribute="trailing" constant="8" id="xRE-X5-duP"/>
+                                        <constraint firstItem="JqC-VS-817" firstAttribute="top" secondItem="v5c-fT-WvO" secondAttribute="topMargin" id="z7C-Mf-L4v"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="callButton" destination="jyV-EQ-b6x" id="kqa-3O-QnA"/>
+                                    <outlet property="emailButton" destination="k4c-H6-TZU" id="Gdr-pI-nhO"/>
+                                    <outlet property="nameLabel" destination="JqC-VS-817" id="5As-rK-q2m"/>
                                     <outlet property="tasksTableView" destination="WPE-MC-bJN" id="tU1-3b-e97"/>
+                                    <outlet property="textButton" destination="z5J-xf-T5W" id="qfj-kg-MzO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

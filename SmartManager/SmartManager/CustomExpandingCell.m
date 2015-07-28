@@ -44,6 +44,14 @@
     return customCell;
 }
 
+#pragma mark - events
+- (IBAction)callButtonTapped:(id)sender {
+}
+- (IBAction)emailButtonTapped:(id)sender {
+}
+- (IBAction)textButtonTapped:(id)sender {
+}
+
 
 
 @end
