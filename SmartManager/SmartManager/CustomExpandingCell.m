@@ -44,6 +44,11 @@
     return customCell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 100;
+}
+
 #pragma mark - events
 - (IBAction)callButtonTapped:(id)sender {
 }
