@@ -12,6 +12,11 @@
 @interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) CustomExpandingCell *customCell;
+@property (strong, nonatomic) NSString *savedEmail;
+@property (strong, nonatomic) NSString *savedPhoneNumber;
+@property (strong, nonatomic) NSString *savedAddress;
+@property (strong, nonatomic) NSString *savedFirstName;
+@property (strong, nonatomic) NSString *savedLastName;
 
 @end
 
@@ -115,11 +120,96 @@
 
 - (void)didSelectPerson:(ABRecordRef)person identifier:(ABMultiValueIdentifier)identifier
 {
+    
+    // get email
+    NSString *emailAddress = @"no email address";
+    ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
+    if (emails)
+    {
+        if (ABMultiValueGetCount(emails) > 0)
+        {
+            CFIndex index = 0;
+            if (identifier != kABMultiValueInvalidIdentifier)
+            {
+                index = ABMultiValueGetIndexForIdentifier(emails, identifier);
+            }
+            emailAddress = CFBridgingRelease(ABMultiValueCopyValueAtIndex(emails, index));
+        }
+        CFRelease(emails);
+    }
+    self.savedEmail = emailAddress;
+    
+    // get phone number
+    NSString *phoneNumber = @"no phone number";
+    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    if (phoneNumbers) {
+        if (ABMultiValueGetCount(phoneNumbers) > 0)
+        {
+            CFIndex index = 0;
+            if (identifier != kABMultiValueInvalidIdentifier) {
+                
+                index = ABMultiValueGetIndexForIdentifier(phoneNumbers, identifier);
+            }
+            phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, index));
+        }
+        CFRelease(phoneNumbers);
+    }
+    self.savedPhoneNumber = phoneNumber;
+    
+    
+    // get address
+    NSString *address = @"no address";
+    ABMultiValueRef addresses = ABRecordCopyValue(person, kABPersonAddressProperty);
+    if (addresses) {
+        if (ABMultiValueGetCount(phoneNumbers) > 0)
+        {
+            CFIndex index = 0;
+            if (identifier != kABMultiValueInvalidIdentifier) {
+                
+                index = ABMultiValueGetIndexForIdentifier(addresses, identifier);
+            }
+            address = CFBridgingRelease(ABMultiValueCopyValueAtIndex(addresses, index));
+        }
+        CFRelease(addresses);
+    }
+    self.savedAddress = address;
 
+    // get firstname
+    NSString *firstName = @"no first name";
+    ABMultiValueRef firstNames = ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    if (firstNames) {
+        if (ABMultiValueGetCount(firstNames) > 0)
+        {
+            CFIndex index = 0;
+            if (identifier != kABMultiValueInvalidIdentifier) {
+                
+                index = ABMultiValueGetIndexForIdentifier(firstNames, identifier);
+            }
+            firstName = CFBridgingRelease(ABMultiValueCopyValueAtIndex(firstNames, index));
+        }
+        CFRelease(firstNames);
+    }
+    self.savedFirstName = firstName;
 
-    NSLog(@"Add Employee");
-
+    
+    // get lastname
+    NSString *lastName = @"no last name";
+    ABMultiValueRef lastNames = ABRecordCopyValue(person, kABPersonLastNameProperty);
+    if (lastNames) {
+        if (ABMultiValueGetCount(lastNames) > 0)
+        {
+            CFIndex index = 0;
+            if (identifier != kABMultiValueInvalidIdentifier) {
+                
+                index = ABMultiValueGetIndexForIdentifier(lastNames, identifier);
+            }
+            firstName = CFBridgingRelease(ABMultiValueCopyValueAtIndex(lastNames, index));
+        }
+        CFRelease(lastNames);
+    }
+    self.savedLastName = lastName;
 }
+
 
 
 /*
