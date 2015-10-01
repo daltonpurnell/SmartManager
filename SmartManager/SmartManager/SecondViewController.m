@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "Appearance.h"
 
 @interface SecondViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [Appearance initializeAppearanceDefaults];
+
 }
 
 - (void)didReceiveMemoryWarning {

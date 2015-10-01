@@ -20,6 +20,7 @@
 		CFA504531BBD971500CDA342 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA504521BBD971500CDA342 /* AddTaskViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CFA504551BBDA08A00CDA342 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA504541BBDA08A00CDA342 /* AddressBook.framework */; };
 		CFA504571BBDA09000CDA342 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA504561BBDA09000CDA342 /* AddressBookUI.framework */; };
+		CFA5045A1BBDA1DD00CDA342 /* Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA504591BBDA1DD00CDA342 /* Appearance.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		CFA504521BBD971500CDA342 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 		CFA504541BBDA08A00CDA342 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		CFA504561BBDA09000CDA342 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		CFA504581BBDA1DC00CDA342 /* Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appearance.h; sourceTree = "<group>"; };
+		CFA504591BBDA1DD00CDA342 /* Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appearance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 			children = (
 				CF829A7A1B67F2BA0056AC89 /* AppDelegate.h */,
 				CF829A7B1B67F2BA0056AC89 /* AppDelegate.m */,
+				CFA504581BBDA1DC00CDA342 /* Appearance.h */,
+				CFA504591BBDA1DD00CDA342 /* Appearance.m */,
 				CF829A9F1B67F8DF0056AC89 /* MainTableViewController.h */,
 				CF829AA01B67F8DF0056AC89 /* MainTableViewController.m */,
 				CF829AA21B67F9100056AC89 /* CustomExpandingCell.h */,
@@ -254,6 +259,7 @@
 				CF829AA71B67FB340056AC89 /* CustomTaskCell.m in Sources */,
 				CF829AA11B67F8DF0056AC89 /* MainTableViewController.m in Sources */,
 				CF829A791B67F2BA0056AC89 /* main.m in Sources */,
+				CFA5045A1BBDA1DD00CDA342 /* Appearance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "MainTableViewController.h"
+#import "Appearance.h"
 
 @interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -22,6 +23,10 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    
+    [Appearance initializeAppearanceDefaults];
+    
 }
 
 

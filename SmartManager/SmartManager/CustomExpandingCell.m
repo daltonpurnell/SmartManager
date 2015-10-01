@@ -7,6 +7,7 @@
 //
 
 #import "CustomExpandingCell.h"
+#import "Appearance.h"
 
 @implementation CustomExpandingCell
 
@@ -21,6 +22,9 @@
     
     self.tasksTableView.delegate = self;
     self.tasksTableView.dataSource = self;
+    
+    [Appearance initializeAppearanceDefaults];
+
     
 }
 

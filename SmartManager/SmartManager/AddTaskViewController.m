@@ -7,6 +7,7 @@
 //
 
 #import "AddTaskViewController.h"
+#import "Appearance.h"
 
 @interface AddTaskViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [Appearance initializeAppearanceDefaults];
+
 }
 
 - (void)didReceiveMemoryWarning {

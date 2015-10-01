@@ -7,11 +7,15 @@
 //
 
 #import "CustomTaskCell.h"
+#import "Appearance.h"
 
 @implementation CustomTaskCell
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    [Appearance initializeAppearanceDefaults];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
