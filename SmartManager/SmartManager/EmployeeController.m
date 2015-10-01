@@ -55,23 +55,15 @@
     employee.emailAddress = emailAddress;
     employee.address = address;
 
-    
-    // setup user and public read access
-    
     PFUser *user = [PFUser currentUser];
-    
     employee.user = user;
-    
     employee.ACL = [PFACL ACLWithUser:user];
-    
     [employee.ACL setPublicReadAccess:NO];
     
     [employee saveInBackground];
     
     NSMutableArray *mutableEmployees = [NSMutableArray arrayWithArray:self.employees];
-    
     [mutableEmployees insertObject:employee atIndex:0];
-    
     self.employees = mutableEmployees;
     
     return employee;

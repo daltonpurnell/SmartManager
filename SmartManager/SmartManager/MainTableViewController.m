@@ -8,6 +8,7 @@
 
 #import "MainTableViewController.h"
 #import "Appearance.h"
+#import "EmployeeController.h"
 
 @interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -150,7 +151,8 @@
                 
                 index = ABMultiValueGetIndexForIdentifier(phoneNumbers, identifier);
             }
-            phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, index));
+//            phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, index));
+            phoneNumber = (__bridge NSString *)ABMultiValueCopyValueAtIndex(phoneNumbers, index);
         }
         CFRelease(phoneNumbers);
     }
@@ -173,45 +175,33 @@
         CFRelease(addresses);
     }
     self.savedAddress = address;
+    
 
     // get firstname
-    NSString *firstName = @"no first name";
-    ABMultiValueRef firstNames = ABRecordCopyValue(person, kABPersonFirstNameProperty);
-    if (firstNames) {
-        if (ABMultiValueGetCount(firstNames) > 0)
-        {
-            CFIndex index = 0;
-            if (identifier != kABMultiValueInvalidIdentifier) {
-                
-                index = ABMultiValueGetIndexForIdentifier(firstNames, identifier);
-            }
-            firstName = CFBridgingRelease(ABMultiValueCopyValueAtIndex(firstNames, index));
-        }
-        CFRelease(firstNames);
-    }
+    NSString *firstName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     self.savedFirstName = firstName;
 
     
     // get lastname
-    NSString *lastName = @"no last name";
-    ABMultiValueRef lastNames = ABRecordCopyValue(person, kABPersonLastNameProperty);
-    if (lastNames) {
-        if (ABMultiValueGetCount(lastNames) > 0)
-        {
-            CFIndex index = 0;
-            if (identifier != kABMultiValueInvalidIdentifier) {
-                
-                index = ABMultiValueGetIndexForIdentifier(lastNames, identifier);
-            }
-            firstName = CFBridgingRelease(ABMultiValueCopyValueAtIndex(lastNames, index));
-        }
-        CFRelease(lastNames);
-    }
+    NSString *lastName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     self.savedLastName = lastName;
-}
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure you would like to add this employee?" message:[NSString stringWithFormat:@"%@ \n %@ \n %@ \n %@ \n %@", firstName, lastName, phoneNumber, emailAddress, address] preferredStyle:UIAlertControllerStyleAlert];
+                                 [alert addAction:[UIAlertAction actionWithTitle:@"Nevermind" style:UIAlertActionStyleCancel handler:nil]];
+                                 [alert addAction:[UIAlertAction actionWithTitle:@"Add Employee" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                     
+                                     // now load all these things into a person object and save it to parse
+                                     [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
+                                 }]];
+                                 
+                                 [self presentViewController:alert animated:YES completion:nil];
 
+                             }];
+    
+    }
 
-// now load all these things into a person object and save it to parse
 
 
 
