@@ -434,6 +434,7 @@
 				CF829A9B1B67F2BA0056AC89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF829A9C1B67F2BA0056AC89 /* Build configuration list for PBXNativeTarget "SmartManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +443,7 @@
 				CF829A9E1B67F2BA0056AC89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

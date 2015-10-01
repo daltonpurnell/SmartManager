@@ -19,5 +19,15 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)checkBoxTapped:(id)sender {
+}
+- (IBAction)taskDueDateTapped:(id)sender {
+}
+- (IBAction)nextStepDueDateTapped:(id)sender {
+}
+
+
+
+
 
 @end
