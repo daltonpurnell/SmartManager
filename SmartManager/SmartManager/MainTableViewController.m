@@ -364,6 +364,16 @@
     }];
 }
 
+- (IBAction)refreshButtonTapped:(id)sender {
+    
+    [self.tableView reloadData];
+    
+}
+
+
+// hide navigation bar when table view begins scrolling
+
+// [navigationController setNavigationBarHidden: YES animated:YES]
 
 
 /*

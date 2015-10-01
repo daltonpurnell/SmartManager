@@ -347,6 +347,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ZDj-c2-GAH">
+                        <barButtonItem key="leftBarButtonItem" image="Restart-26" id="TVf-i1-zMY">
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="GAi-1u-Dqa" id="mRS-pV-JBE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcN-sm-C3C">
                             <connections>
                                 <action selector="addEmployee:" destination="GAi-1u-Dqa" id="99F-2t-GEG"/>
@@ -462,6 +467,7 @@
     <resources>
         <image name="Date" width="32" height="32"/>
         <image name="Edit-32 (2)" width="32" height="32"/>
+        <image name="Restart-26" width="26" height="26"/>
         <image name="SMART-add-button" width="57" height="54"/>
         <image name="SMART-call-button" width="57" height="54"/>
         <image name="SMART-email-button" width="57" height="54"/>
