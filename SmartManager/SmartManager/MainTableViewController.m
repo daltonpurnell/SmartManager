@@ -10,6 +10,8 @@
 
 @interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) CustomExpandingCell *customCell;
+
 @end
 
 @implementation MainTableViewController
