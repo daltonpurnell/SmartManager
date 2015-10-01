@@ -41,6 +41,8 @@
 		CFA504801BBDC94400CDA342 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA5047F1BBDC94400CDA342 /* Accounts.framework */; };
 		CFA504821BBDC94A00CDA342 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA504811BBDC94A00CDA342 /* Social.framework */; };
 		CFA504851BBDCB5400CDA342 /* EmployeeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA504841BBDCB5400CDA342 /* EmployeeController.m */; settings = {ASSET_TAGS = (); }; };
+		CFA5048F1BBDF44900CDA342 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA5048E1BBDF44900CDA342 /* Task.m */; settings = {ASSET_TAGS = (); }; };
+		CFA504921BBDF59500CDA342 /* TaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA504911BBDF59500CDA342 /* TaskController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,10 @@
 		CFA504811BBDC94A00CDA342 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		CFA504831BBDCB5400CDA342 /* EmployeeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeController.h; sourceTree = "<group>"; };
 		CFA504841BBDCB5400CDA342 /* EmployeeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeController.m; sourceTree = "<group>"; };
+		CFA5048D1BBDF44900CDA342 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		CFA5048E1BBDF44900CDA342 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		CFA504901BBDF59500CDA342 /* TaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskController.h; sourceTree = "<group>"; };
+		CFA504911BBDF59500CDA342 /* TaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,8 @@
 			children = (
 				CFA5045B1BBDC83200CDA342 /* Employee.h */,
 				CFA5045C1BBDC83200CDA342 /* Employee.m */,
+				CFA5048D1BBDF44900CDA342 /* Task.h */,
+				CFA5048E1BBDF44900CDA342 /* Task.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -241,6 +249,8 @@
 			children = (
 				CFA504831BBDCB5400CDA342 /* EmployeeController.h */,
 				CFA504841BBDCB5400CDA342 /* EmployeeController.m */,
+				CFA504901BBDF59500CDA342 /* TaskController.h */,
+				CFA504911BBDF59500CDA342 /* TaskController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -369,8 +379,10 @@
 				CFA504531BBD971500CDA342 /* AddTaskViewController.m in Sources */,
 				CF829A821B67F2BA0056AC89 /* SecondViewController.m in Sources */,
 				CF829AA41B67F9100056AC89 /* CustomExpandingCell.m in Sources */,
+				CFA5048F1BBDF44900CDA342 /* Task.m in Sources */,
 				CFA504851BBDCB5400CDA342 /* EmployeeController.m in Sources */,
 				CF829A7C1B67F2BA0056AC89 /* AppDelegate.m in Sources */,
+				CFA504921BBDF59500CDA342 /* TaskController.m in Sources */,
 				CF829AA71B67FB340056AC89 /* CustomTaskCell.m in Sources */,
 				CF829AA11B67F8DF0056AC89 /* MainTableViewController.m in Sources */,
 				CFA5045D1BBDC83200CDA342 /* Employee.m in Sources */,

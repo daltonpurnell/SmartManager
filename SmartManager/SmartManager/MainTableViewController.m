@@ -26,10 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // refresh control not working
-    self.refreshControl = [UIRefreshControl new];
-    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
-    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -350,19 +346,6 @@
 }
 
 
-#pragma mark - loading table view with correct data
-
-
--(void)refreshTable {
-    
-    [self.refreshControl beginRefreshing];
-    
-    [[EmployeeController sharedInstance] loadEmployeesFromParse:^(NSError *error) {
-        
-        [self.tableView reloadData];
-        [self.refreshControl endRefreshing];
-    }];
-}
 
 - (IBAction)refreshButtonTapped:(id)sender {
     
