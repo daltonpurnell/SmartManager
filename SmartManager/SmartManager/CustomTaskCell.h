@@ -18,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *nextStepTextView;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView3;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView2;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView1;
 
 @end

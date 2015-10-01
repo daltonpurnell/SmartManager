@@ -15,7 +15,6 @@
     // Initialization code
     
     [Appearance initializeAppearanceDefaults];
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

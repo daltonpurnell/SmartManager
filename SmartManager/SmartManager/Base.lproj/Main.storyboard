@@ -112,7 +112,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltr-6q-J84">
-                                                                <rect key="frame" x="8" y="10" width="300" height="17"/>
+                                                                <rect key="frame" x="8" y="10.5" width="300" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -133,6 +133,17 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juD-lV-Vyc">
+                                                                <rect key="frame" x="8" y="62" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="0No-Gx-XFz"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="brG-YD-wQ3"/>
+                                                                </constraints>
+                                                                <state key="normal" backgroundImage="Unchecked Checkbox-32"/>
+                                                                <connections>
+                                                                    <action selector="checkBoxTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="3uZ-Zr-VR0"/>
+                                                                </connections>
+                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Step" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqA-y3-zm5">
                                                                 <rect key="frame" x="360" y="8" width="92" height="21"/>
                                                                 <constraints>
@@ -184,22 +195,11 @@
                                                                     <action selector="editButtonTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="Q9J-h5-Hmr"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juD-lV-Vyc">
-                                                                <rect key="frame" x="8" y="62" width="30" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="0No-Gx-XFz"/>
-                                                                    <constraint firstAttribute="width" constant="30" id="brG-YD-wQ3"/>
-                                                                </constraints>
-                                                                <state key="normal" backgroundImage="Unchecked Checkbox-32"/>
-                                                                <connections>
-                                                                    <action selector="checkBoxTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="3uZ-Zr-VR0"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="oqA-y3-zm5" firstAttribute="centerY" secondItem="10P-ks-PZZ" secondAttribute="centerY" id="76T-eo-SGz"/>
                                                             <constraint firstItem="CAh-L2-NsF" firstAttribute="leading" secondItem="uhY-ZI-mOl" secondAttribute="trailing" constant="32" id="9Ud-Ld-ltc"/>
-                                                            <constraint firstItem="oqA-y3-zm5" firstAttribute="leading" secondItem="4Ms-Kj-knu" secondAttribute="trailing" constant="8" symbolic="YES" id="CGk-8a-uqM"/>
+                                                            <constraint firstItem="oqA-y3-zm5" firstAttribute="leading" secondItem="4Ms-Kj-knu" secondAttribute="trailing" constant="8" id="CGk-8a-uqM"/>
                                                             <constraint firstItem="uhY-ZI-mOl" firstAttribute="top" secondItem="10P-ks-PZZ" secondAttribute="bottom" constant="-1" id="H5x-Jy-liO"/>
                                                             <constraint firstAttribute="leadingMargin" secondItem="juD-lV-Vyc" secondAttribute="leading" id="Jq1-uQ-Qoj"/>
                                                             <constraint firstItem="uhY-ZI-mOl" firstAttribute="height" secondItem="CAh-L2-NsF" secondAttribute="height" id="PO6-GA-cTN"/>
