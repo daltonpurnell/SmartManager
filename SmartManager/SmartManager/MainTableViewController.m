@@ -211,6 +211,9 @@
 }
 
 
+// now load all these things into a person object and save it to parse
+
+
 
 /*
 #pragma mark - Navigation
