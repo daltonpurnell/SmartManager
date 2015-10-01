@@ -30,8 +30,6 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PFACL.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/Parse.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Modules/module.modulemap \
-  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Appearance.h \
-  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AppDelegate.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/MainTableViewController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Headers/PFTextField.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Headers/PFSignUpViewController.h \
@@ -48,5 +46,7 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Headers/PFCollectionViewCell.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Headers/ParseUI.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Modules/module.modulemap \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Appearance.h \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AppDelegate.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AddTaskViewController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/SecondViewController.h

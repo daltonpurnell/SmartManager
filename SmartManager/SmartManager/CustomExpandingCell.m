@@ -25,9 +25,12 @@
     
     [Appearance initializeAppearanceDefaults];
     
+    // TODO: this isn't working. the employees are all being saved to parse, but the names show up as null on the cell
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.employee.firstName, self.employee.lastName];
-
 }
+
+
+
 
 #pragma mark - tasks table view data source
 
@@ -53,6 +56,7 @@
     
     return 100;
 }
+
 
 
 
@@ -96,6 +100,9 @@
     return v;
     
 }
+
+
+
 
 #pragma mark - events
 - (IBAction)callButtonTapped:(id)sender {

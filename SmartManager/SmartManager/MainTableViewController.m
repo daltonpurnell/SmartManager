@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    // refresh control not working
     self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     
@@ -248,6 +248,8 @@
                                      // now load all these things into a person object and save it to parse
                                     self.employee = [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
                                      
+                                     // TODO: this isn't working. the employees are all being saved to parse, but the names show up as null on the cell
+                                     self.customCell.employee = self.employee;
                                      [self.tableView reloadData];
                                  }]];
                                  
@@ -348,13 +350,15 @@
 }
 
 
-#pragma mark - loading table view with correct data and av audio player
+#pragma mark - loading table view with correct data
 
 
 -(void)refreshTable {
     
     [self.refreshControl beginRefreshing];
+    
     [[EmployeeController sharedInstance] loadEmployeesFromParse:^(NSError *error) {
+        
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
     }];
