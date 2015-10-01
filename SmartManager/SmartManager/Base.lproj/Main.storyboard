@@ -334,7 +334,13 @@
                             <outlet property="delegate" destination="GAi-1u-Dqa" id="b6b-n9-XzO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZDj-c2-GAH"/>
+                    <navigationItem key="navigationItem" id="ZDj-c2-GAH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xcN-sm-C3C">
+                            <connections>
+                                <action selector="addEmployee:" destination="GAi-1u-Dqa" id="99F-2t-GEG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwC-3Y-fwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

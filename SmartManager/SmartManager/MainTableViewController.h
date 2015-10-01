@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomExpandingCell.h"
+@import AddressBook;
+@import AddressBookUI;
 
-@interface MainTableViewController : UITableViewController
+@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
 
 @end

@@ -55,33 +55,56 @@
 }
 
 
+- (IBAction)addEmployee:(id)sender {
+    
+    
+    // Show ABPeoplePickerNavigationController
+    ABPeoplePickerNavigationController *picker = [ABPeoplePickerNavigationController new];
+    picker.peoplePickerDelegate = self;
+    picker.displayedProperties = @[@(kABPersonEmailProperty)];
+//    picker.predicateForEnablingPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count > 0"];
+//    picker.predicateForSelectionOfPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count = 1"];
+    
+    [self presentViewController:picker animated:YES completion:nil];
 
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    NSLog(@"People picker launched");
+    
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+#pragma mark - ABPeoplePickerNavigationControllerDelegate methods
+
+// A selected person is returned with this method.
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person
+{
+    [self didSelectPerson:person identifier:kABMultiValueInvalidIdentifier];
 }
-*/
+
+
+// A selected person and property is returned with this method.
+- (void)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker didSelectPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    [self didSelectPerson:person identifier:identifier];
+}
+
+
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    
+}
+
+
+
+#pragma mark - ABPeoplePickerNavigationController helper methods
+
+- (void)didSelectPerson:(ABRecordRef)person identifier:(ABMultiValueIdentifier)identifier
+{
+
+
+    NSLog(@"Add Employee");
+
+}
+
 
 /*
 #pragma mark - Navigation

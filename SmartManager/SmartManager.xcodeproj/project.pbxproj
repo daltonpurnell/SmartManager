@@ -18,6 +18,8 @@
 		CF829AA41B67F9100056AC89 /* CustomExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF829AA31B67F9100056AC89 /* CustomExpandingCell.m */; };
 		CF829AA71B67FB340056AC89 /* CustomTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF829AA61B67FB340056AC89 /* CustomTaskCell.m */; };
 		CFA504531BBD971500CDA342 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA504521BBD971500CDA342 /* AddTaskViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CFA504551BBDA08A00CDA342 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA504541BBDA08A00CDA342 /* AddressBook.framework */; };
+		CFA504571BBDA09000CDA342 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA504561BBDA09000CDA342 /* AddressBookUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		CF829AA61B67FB340056AC89 /* CustomTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTaskCell.m; sourceTree = "<group>"; };
 		CFA504511BBD971500CDA342 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
 		CFA504521BBD971500CDA342 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
+		CFA504541BBDA08A00CDA342 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		CFA504561BBDA09000CDA342 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFA504571BBDA09000CDA342 /* AddressBookUI.framework in Frameworks */,
+				CFA504551BBDA08A00CDA342 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +122,8 @@
 		CF829A761B67F2BA0056AC89 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CFA504561BBDA09000CDA342 /* AddressBookUI.framework */,
+				CFA504541BBDA08A00CDA342 /* AddressBook.framework */,
 				CF829A771B67F2BA0056AC89 /* Info.plist */,
 				CF829A781B67F2BA0056AC89 /* main.m */,
 			);
