@@ -43,6 +43,13 @@
                                                            [UIFont fontWithName:@"SystemFont" size: 30.0],
                                                            NSFontAttributeName,
                                                            nil]];
+    
+    
+    
+    ABAddressBookRef addressBook =  ABAddressBookCreateWithOptions(NULL, NULL);
+    ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
+        NSLog(@"Access to contacts %@ by user", granted ? @"granted" : @"denied");
+    });
 
 }
 
@@ -78,7 +85,42 @@
 
 
 - (IBAction)addEmployee:(id)sender {
-    
+//    
+//    PFUser *user = [PFUser currentUser];
+//    
+//    if (!user) {
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Whoa there, nelly!" message:@"You need to log in or sign up before you can add employees." preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            
+//            // parse log in
+//                    PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+//                    [logInViewController setDelegate:self];
+//                    [logInViewController setFields:PFLogInFieldsUsernameAndPassword
+//                     | PFLogInFieldsSignUpButton
+//                     | PFLogInFieldsLogInButton
+//                     | PFLogInFieldsDismissButton
+//                     | PFLogInFieldsUsernameAndPassword];
+//            
+//                    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+//                    [signUpViewController setDelegate:self];
+//                    [signUpViewController setFields:PFSignUpFieldsUsernameAndPassword
+//                     | PFSignUpFieldsDismissButton
+//                     | PFSignUpFieldsSignUpButton];
+//            
+//                    [logInViewController setSignUpController:signUpViewController];
+//            
+//                    [self presentViewController:logInViewController animated:YES completion:^{
+//                        
+//                        // nothing
+//                    }];
+//            
+//        }]];
+//        
+//        [alert addAction:[UIAlertAction actionWithTitle:@"No, thanks" style:UIAlertActionStyleCancel handler:nil]];
+//        
+//
+//    } else {
     
     // Show ABPeoplePickerNavigationController
     ABPeoplePickerNavigationController *picker = [ABPeoplePickerNavigationController new];
@@ -90,7 +132,7 @@
     [self presentViewController:picker animated:YES completion:nil];
 
     NSLog(@"People picker launched");
-    
+//    }
 }
 
 
@@ -151,11 +193,11 @@
                 
                 index = ABMultiValueGetIndexForIdentifier(phoneNumbers, identifier);
             }
-//            phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, index));
-            phoneNumber = (__bridge NSString *)ABMultiValueCopyValueAtIndex(phoneNumbers, index);
+            phoneNumber = CFBridgingRelease(ABMultiValueCopyValueAtIndex(phoneNumbers, index));
         }
         CFRelease(phoneNumbers);
     }
+    
     self.savedPhoneNumber = phoneNumber;
     
     
@@ -163,7 +205,7 @@
     NSString *address = @"No Address";
     ABMultiValueRef addresses = ABRecordCopyValue(person, kABPersonAddressProperty);
     if (addresses) {
-        if (ABMultiValueGetCount(phoneNumbers) > 0)
+        if (ABMultiValueGetCount(addresses) > 0)
         {
             CFIndex index = 0;
             if (identifier != kABMultiValueInvalidIdentifier) {
@@ -178,23 +220,35 @@
     
 
     // get firstname
+    
+    
     NSString *firstName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    
+    if (!firstName) {
+        firstName = @"";
+    } else {
     self.savedFirstName = firstName;
-
+    }
     
     // get lastname
     NSString *lastName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
-    self.savedLastName = lastName;
+    if (!lastName) {
+        lastName = @"";
+    } else {
+        self.savedLastName = lastName;
+    }
     
     [self dismissViewControllerAnimated:YES
                              completion:^{
-                                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure you would like to add this employee?" message:[NSString stringWithFormat:@"%@ \n %@ \n %@ \n %@ \n %@", firstName, lastName, phoneNumber, emailAddress, address] preferredStyle:UIAlertControllerStyleAlert];
-                                 [alert addAction:[UIAlertAction actionWithTitle:@"Nevermind" style:UIAlertActionStyleCancel handler:nil]];
+                                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure you would like to add this employee?" message:[NSString stringWithFormat:@"%@ %@ \n %@ \n %@ \n %@", firstName, lastName, phoneNumber, emailAddress, address] preferredStyle:UIAlertControllerStyleAlert];
+
                                  [alert addAction:[UIAlertAction actionWithTitle:@"Add Employee" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                                      
                                      // now load all these things into a person object and save it to parse
                                      [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
                                  }]];
+                                 
+                                [alert addAction:[UIAlertAction actionWithTitle:@"Nevermind" style:UIAlertActionStyleCancel handler:nil]];
                                  
                                  [self presentViewController:alert animated:YES completion:nil];
 
@@ -202,6 +256,111 @@
     
     }
 
+
+
+
+
+#pragma mark - login delegate methods
+
+// Sent to the delegate to determine whether the log in request should be submitted to the server.
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    // Check if both fields are completed
+    if (username && password && username.length != 0 && password.length != 0) {
+        return YES; // Begin login process
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                message:@"Make sure you fill out all of the information!"
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+    return NO; // Interrupt login process
+}
+
+
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    
+    ABPeoplePickerNavigationController *picker = [ABPeoplePickerNavigationController new];
+    picker.peoplePickerDelegate = self;
+    picker.displayedProperties = @[@(kABPersonEmailProperty)];
+    //    picker.predicateForEnablingPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count > 0"];
+    //    picker.predicateForSelectionOfPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count = 1"];
+    
+    [self presentViewController:picker animated:YES completion:nil];
+
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+// for when the login attempt fails
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+// For when the login view is dismissed
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    //[self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+
+#pragma mark - signup delegate methods
+
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
+    BOOL informationComplete = YES;
+    
+    // loop through all of the submitted data
+    for (id key in info) {
+        NSString *field = [info objectForKey:key];
+        if (!field || field.length == 0) { // check completion
+            informationComplete = NO;
+            break;
+        }
+    }
+    
+    // Display an alert if a field wasn't completed
+    if (!informationComplete) {
+        [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                    message:@"Make sure you fill out all of the information!"
+                                   delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil] show];
+    }
+    
+    return informationComplete;
+}
+
+
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    
+    ABPeoplePickerNavigationController *picker = [ABPeoplePickerNavigationController new];
+    picker.peoplePickerDelegate = self;
+    picker.displayedProperties = @[@(kABPersonEmailProperty)];
+    //    picker.predicateForEnablingPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count > 0"];
+    //    picker.predicateForSelectionOfPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count = 1"];
+    
+    [self presentViewController:picker animated:YES completion:nil];
+
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up...");
+}
+
+
+
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    NSLog(@"User dismissed the signUpViewController");
+}
 
 
 

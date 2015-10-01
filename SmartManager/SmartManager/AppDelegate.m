@@ -22,6 +22,7 @@
     [Parse setApplicationId:@"R4DTj5yB1mhdg65Cv5PmbGdhQ8l3mYn17HbImc2p"
                   clientKey:@"9iJWlGJaTYNCSLB2WXBYIcrWau6BOudxocZx6pDv"];
     
+    [Employee registerSubclass];
     
     return YES;
 }

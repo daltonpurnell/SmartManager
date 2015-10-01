@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EmployeeController.h"
 @import Parse;
 
 

@@ -10,8 +10,11 @@
 #import "CustomExpandingCell.h"
 @import AddressBook;
 @import AddressBookUI;
+@import Parse;
+@import ParseUI;
 
-@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
 
 @end
