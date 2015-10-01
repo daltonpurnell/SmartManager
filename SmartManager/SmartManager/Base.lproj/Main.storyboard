@@ -112,114 +112,119 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ltr-6q-J84">
-                                                                <rect key="frame" x="46" y="8" width="152" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="8" y="10" width="300" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uhY-ZI-mOl">
-                                                                <rect key="frame" x="288" y="33" width="136" height="59"/>
+                                                                <rect key="frame" x="360" y="33" width="100" height="59"/>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CAh-L2-NsF">
-                                                                <rect key="frame" x="456" y="33" width="136" height="59"/>
+                                                                <rect key="frame" x="492" y="33" width="100" height="59"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="58.5" id="Yfx-O5-uQk"/>
-                                                                    <constraint firstAttribute="width" constant="136" id="i4l-lv-q9l"/>
+                                                                    <constraint firstAttribute="width" constant="100" id="i4l-lv-q9l"/>
                                                                 </constraints>
                                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juD-lV-Vyc">
-                                                                <rect key="frame" x="8" y="3" width="30" height="30"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="30" id="QRF-rk-N0O"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="YWy-0f-hM6"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Check"/>
-                                                                <connections>
-                                                                    <action selector="checkBoxTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="3uZ-Zr-VR0"/>
-                                                                </connections>
-                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Step" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqA-y3-zm5">
-                                                                <rect key="frame" x="288" y="8.5" width="92" height="21"/>
+                                                                <rect key="frame" x="360" y="8" width="92" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="UxE-uK-fy6"/>
                                                                     <constraint firstAttribute="width" constant="92" id="lAP-E3-pgu"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0W-t7-YBl">
-                                                                <rect key="frame" x="456" y="8" width="136" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <rect key="frame" x="492" y="12" width="100" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10P-ks-PZZ">
-                                                                <rect key="frame" x="388" y="4" width="36" height="30"/>
+                                                                <rect key="frame" x="424" y="4" width="36" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="36" id="Igg-jh-sdV"/>
                                                                     <constraint firstAttribute="height" constant="30" id="kmJ-W3-c6b"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Date"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <state key="normal" title="Date" backgroundImage="Date"/>
                                                                 <connections>
                                                                     <action selector="nextStepDueDateTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="EIC-gA-xs4"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ms-Kj-knu">
-                                                                <rect key="frame" x="244" y="4" width="36" height="30"/>
+                                                                <rect key="frame" x="316" y="4" width="36" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="QSm-fL-gkA"/>
                                                                     <constraint firstAttribute="width" constant="36" id="mUO-rt-v6B"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Date"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <state key="normal" title="Date" backgroundImage="Date"/>
                                                                 <connections>
                                                                     <action selector="taskDueDateTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="VYN-Wz-3av"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNJ-16-q9f">
-                                                                <rect key="frame" x="206" y="4" width="30" height="30"/>
+                                                                <rect key="frame" x="46" y="61" width="32" height="32"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="30" id="3Ri-fO-Rdj"/>
-                                                                    <constraint firstAttribute="width" constant="30" id="8bj-hd-kTy"/>
+                                                                    <constraint firstAttribute="width" constant="32" id="Owj-cf-bgE"/>
+                                                                    <constraint firstAttribute="height" constant="32" id="vKo-rA-erj"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Edit"/>
+                                                                <state key="normal" backgroundImage="Edit-32 (2)"/>
+                                                                <connections>
+                                                                    <action selector="editButtonTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="Q9J-h5-Hmr"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juD-lV-Vyc">
+                                                                <rect key="frame" x="8" y="62" width="30" height="30"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="0No-Gx-XFz"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="brG-YD-wQ3"/>
+                                                                </constraints>
+                                                                <state key="normal" backgroundImage="Unchecked Checkbox-32"/>
+                                                                <connections>
+                                                                    <action selector="checkBoxTapped:" destination="y4N-fT-h7T" eventType="touchUpInside" id="3uZ-Zr-VR0"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="YNJ-16-q9f" firstAttribute="centerY" secondItem="4Ms-Kj-knu" secondAttribute="centerY" id="0sS-EZ-P3b"/>
                                                             <constraint firstItem="oqA-y3-zm5" firstAttribute="centerY" secondItem="10P-ks-PZZ" secondAttribute="centerY" id="76T-eo-SGz"/>
-                                                            <constraint firstItem="YNJ-16-q9f" firstAttribute="leading" secondItem="Ltr-6q-J84" secondAttribute="trailing" constant="8" id="7Qc-bX-z6d"/>
                                                             <constraint firstItem="CAh-L2-NsF" firstAttribute="leading" secondItem="uhY-ZI-mOl" secondAttribute="trailing" constant="32" id="9Ud-Ld-ltc"/>
                                                             <constraint firstItem="oqA-y3-zm5" firstAttribute="leading" secondItem="4Ms-Kj-knu" secondAttribute="trailing" constant="8" symbolic="YES" id="CGk-8a-uqM"/>
                                                             <constraint firstItem="uhY-ZI-mOl" firstAttribute="top" secondItem="10P-ks-PZZ" secondAttribute="bottom" constant="-1" id="H5x-Jy-liO"/>
-                                                            <constraint firstItem="4Ms-Kj-knu" firstAttribute="leading" secondItem="YNJ-16-q9f" secondAttribute="trailing" constant="8" id="Iii-q1-bWo"/>
+                                                            <constraint firstAttribute="leadingMargin" secondItem="juD-lV-Vyc" secondAttribute="leading" id="Jq1-uQ-Qoj"/>
                                                             <constraint firstItem="uhY-ZI-mOl" firstAttribute="height" secondItem="CAh-L2-NsF" secondAttribute="height" id="PO6-GA-cTN"/>
                                                             <constraint firstItem="c0W-t7-YBl" firstAttribute="centerX" secondItem="CAh-L2-NsF" secondAttribute="centerX" id="UbT-cV-yG9"/>
                                                             <constraint firstItem="uhY-ZI-mOl" firstAttribute="width" secondItem="CAh-L2-NsF" secondAttribute="width" id="Vta-8X-u3r"/>
                                                             <constraint firstItem="c0W-t7-YBl" firstAttribute="width" secondItem="CAh-L2-NsF" secondAttribute="width" id="XdU-AZ-lVY"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="juD-lV-Vyc" secondAttribute="bottom" constant="-0.5" id="YOm-ye-MdQ"/>
                                                             <constraint firstItem="oqA-y3-zm5" firstAttribute="leading" secondItem="uhY-ZI-mOl" secondAttribute="leading" id="Yh3-0n-FOJ"/>
                                                             <constraint firstAttribute="trailingMargin" secondItem="CAh-L2-NsF" secondAttribute="trailing" id="aDb-AO-zta"/>
                                                             <constraint firstItem="4Ms-Kj-knu" firstAttribute="centerY" secondItem="oqA-y3-zm5" secondAttribute="centerY" id="aO4-KW-6tv"/>
                                                             <constraint firstItem="Ltr-6q-J84" firstAttribute="centerY" secondItem="4Ms-Kj-knu" secondAttribute="centerY" id="gVg-yD-IW3"/>
-                                                            <constraint firstItem="Ltr-6q-J84" firstAttribute="leading" secondItem="juD-lV-Vyc" secondAttribute="trailing" constant="8" id="gwN-Ff-uaR"/>
+                                                            <constraint firstItem="YNJ-16-q9f" firstAttribute="centerY" secondItem="juD-lV-Vyc" secondAttribute="centerY" id="hUl-Dx-ypl"/>
                                                             <constraint firstItem="uhY-ZI-mOl" firstAttribute="centerY" secondItem="CAh-L2-NsF" secondAttribute="centerY" id="hpP-Pv-mW7"/>
-                                                            <constraint firstItem="Ltr-6q-J84" firstAttribute="centerY" secondItem="juD-lV-Vyc" secondAttribute="centerY" id="iHW-ak-Fn8"/>
                                                             <constraint firstItem="CAh-L2-NsF" firstAttribute="top" secondItem="c0W-t7-YBl" secondAttribute="bottom" constant="4" id="ift-il-Inu"/>
-                                                            <constraint firstAttribute="leadingMargin" secondItem="juD-lV-Vyc" secondAttribute="leading" id="jnS-eI-7ZS"/>
                                                             <constraint firstItem="10P-ks-PZZ" firstAttribute="trailing" secondItem="uhY-ZI-mOl" secondAttribute="trailing" id="kml-MO-gPh"/>
                                                             <constraint firstAttribute="bottomMargin" secondItem="CAh-L2-NsF" secondAttribute="bottom" id="kvy-UN-IpL"/>
-                                                            <constraint firstItem="juD-lV-Vyc" firstAttribute="top" secondItem="YRo-6V-0tg" secondAttribute="topMargin" constant="-5" id="uxF-zT-qBy"/>
+                                                            <constraint firstItem="4Ms-Kj-knu" firstAttribute="leading" secondItem="Ltr-6q-J84" secondAttribute="trailing" constant="8" id="o3F-W0-mE4"/>
+                                                            <constraint firstItem="YNJ-16-q9f" firstAttribute="leading" secondItem="juD-lV-Vyc" secondAttribute="trailing" constant="8" id="oQb-R2-s0u"/>
+                                                            <constraint firstAttribute="leadingMargin" secondItem="Ltr-6q-J84" secondAttribute="leading" id="uFQ-hD-oPg"/>
                                                         </constraints>
                                                     </tableViewCellContentView>
                                                     <connections>
                                                         <outlet property="TaskDueDateButton" destination="4Ms-Kj-knu" id="Le5-8z-Rhb"/>
                                                         <outlet property="checkBox" destination="juD-lV-Vyc" id="Pc1-cH-SnM"/>
+                                                        <outlet property="editButton" destination="YNJ-16-q9f" id="5n5-ex-fXK"/>
                                                         <outlet property="nextStepDueDateButton" destination="10P-ks-PZZ" id="oO9-hv-INK"/>
                                                         <outlet property="nextStepLabel" destination="oqA-y3-zm5" id="HVM-m7-bhr"/>
                                                         <outlet property="nextStepTextView" destination="uhY-ZI-mOl" id="whL-NI-t4y"/>
@@ -434,6 +439,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Date" width="32" height="32"/>
+        <image name="Edit-32 (2)" width="32" height="32"/>
+        <image name="Unchecked Checkbox-32" width="32" height="32"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
