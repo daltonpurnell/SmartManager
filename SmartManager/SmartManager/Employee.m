@@ -8,6 +8,20 @@
 
 #import "Employee.h"
 
+static NSString * const EmployeeClassName = @"Employee";
+
+
 @implementation Employee
+
+@dynamic firstName;
+@dynamic lastName;
+@dynamic phoneNumber;
+@dynamic emailAddress;
+@dynamic address;
+@dynamic user;
+
++ (NSString *)parseClassName {
+    return EmployeeClassName;
+}
 
 @end

@@ -40,6 +40,7 @@
 		CFA5047E1BBDC93B00CDA342 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA5047D1BBDC93B00CDA342 /* libsqlite3.tbd */; };
 		CFA504801BBDC94400CDA342 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA5047F1BBDC94400CDA342 /* Accounts.framework */; };
 		CFA504821BBDC94A00CDA342 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA504811BBDC94A00CDA342 /* Social.framework */; };
+		CFA504851BBDCB5400CDA342 /* EmployeeController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA504841BBDCB5400CDA342 /* EmployeeController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,8 @@
 		CFA5047D1BBDC93B00CDA342 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		CFA5047F1BBDC94400CDA342 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		CFA504811BBDC94A00CDA342 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		CFA504831BBDCB5400CDA342 /* EmployeeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeController.h; sourceTree = "<group>"; };
+		CFA504841BBDCB5400CDA342 /* EmployeeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,22 +162,9 @@
 		CF829A751B67F2BA0056AC89 /* SmartManager */ = {
 			isa = PBXGroup;
 			children = (
-				CFA5045B1BBDC83200CDA342 /* Employee.h */,
-				CFA5045C1BBDC83200CDA342 /* Employee.m */,
-				CF829A7A1B67F2BA0056AC89 /* AppDelegate.h */,
-				CF829A7B1B67F2BA0056AC89 /* AppDelegate.m */,
-				CFA504581BBDA1DC00CDA342 /* Appearance.h */,
-				CFA504591BBDA1DD00CDA342 /* Appearance.m */,
-				CF829A9F1B67F8DF0056AC89 /* MainTableViewController.h */,
-				CF829AA01B67F8DF0056AC89 /* MainTableViewController.m */,
-				CF829AA21B67F9100056AC89 /* CustomExpandingCell.h */,
-				CF829AA31B67F9100056AC89 /* CustomExpandingCell.m */,
-				CF829AA51B67FB340056AC89 /* CustomTaskCell.h */,
-				CF829AA61B67FB340056AC89 /* CustomTaskCell.m */,
-				CFA504511BBD971500CDA342 /* AddTaskViewController.h */,
-				CFA504521BBD971500CDA342 /* AddTaskViewController.m */,
-				CF829A801B67F2BA0056AC89 /* SecondViewController.h */,
-				CF829A811B67F2BA0056AC89 /* SecondViewController.m */,
+				CFA504871BBDCB7300CDA342 /* Model */,
+				CFA504881BBDCB7B00CDA342 /* Controller */,
+				CFA504891BBDCB8400CDA342 /* View */,
 				CF829A831B67F2BA0056AC89 /* Main.storyboard */,
 				CF829A861B67F2BA0056AC89 /* Images.xcassets */,
 				CF829A881B67F2BA0056AC89 /* LaunchScreen.xib */,
@@ -235,6 +225,45 @@
 			children = (
 			);
 			path = "parse-library-1.7.5";
+			sourceTree = "<group>";
+		};
+		CFA504871BBDCB7300CDA342 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFA5045B1BBDC83200CDA342 /* Employee.h */,
+				CFA5045C1BBDC83200CDA342 /* Employee.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CFA504881BBDCB7B00CDA342 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFA504831BBDCB5400CDA342 /* EmployeeController.h */,
+				CFA504841BBDCB5400CDA342 /* EmployeeController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CFA504891BBDCB8400CDA342 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF829A7A1B67F2BA0056AC89 /* AppDelegate.h */,
+				CF829A7B1B67F2BA0056AC89 /* AppDelegate.m */,
+				CFA504581BBDA1DC00CDA342 /* Appearance.h */,
+				CFA504591BBDA1DD00CDA342 /* Appearance.m */,
+				CF829A9F1B67F8DF0056AC89 /* MainTableViewController.h */,
+				CF829AA01B67F8DF0056AC89 /* MainTableViewController.m */,
+				CF829AA21B67F9100056AC89 /* CustomExpandingCell.h */,
+				CF829AA31B67F9100056AC89 /* CustomExpandingCell.m */,
+				CF829AA51B67FB340056AC89 /* CustomTaskCell.h */,
+				CF829AA61B67FB340056AC89 /* CustomTaskCell.m */,
+				CFA504511BBD971500CDA342 /* AddTaskViewController.h */,
+				CFA504521BBD971500CDA342 /* AddTaskViewController.m */,
+				CF829A801B67F2BA0056AC89 /* SecondViewController.h */,
+				CF829A811B67F2BA0056AC89 /* SecondViewController.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +369,7 @@
 				CFA504531BBD971500CDA342 /* AddTaskViewController.m in Sources */,
 				CF829A821B67F2BA0056AC89 /* SecondViewController.m in Sources */,
 				CF829AA41B67F9100056AC89 /* CustomExpandingCell.m in Sources */,
+				CFA504851BBDCB5400CDA342 /* EmployeeController.m in Sources */,
 				CF829A7C1B67F2BA0056AC89 /* AppDelegate.m in Sources */,
 				CF829AA71B67FB340056AC89 /* CustomTaskCell.m in Sources */,
 				CF829AA11B67F8DF0056AC89 /* MainTableViewController.m in Sources */,

@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+@import Parse;
 
-@interface Employee : NSObject
+@interface Employee : PFObject <PFSubclassing>
+
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *emailAddress;
+@property (nonatomic, strong) NSString *address;
+@property (nonatomic, strong) PFUser *user;
+
++ (NSString *)parseClassName;
 
 @end
