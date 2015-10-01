@@ -34,7 +34,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 3;
+    return 2;
 }
 
 
@@ -49,12 +49,57 @@
     return 100;
 }
 
+
+
+// set up priority labels for section headers
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView  *v =[[UIView alloc] init];
+    
+    v.backgroundColor = [UIColor clearColor];
+    
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, tableView.bounds.size.width - 10, 18)];
+    
+    label.textColor = [UIColor  darkGrayColor];
+    
+    label.font = [UIFont boldSystemFontOfSize:15];
+    
+    label.backgroundColor = [UIColor clearColor];
+    
+    if (section  == 0) {
+        
+        label.text = @"Priority 1";
+        
+        [v addSubview:label];
+    }
+    else if (section == 1) {
+        
+        label.text = @"Priority 2";
+        
+        [v addSubview:label];
+        
+    }
+    else if (section == 2) {
+        
+        label.text = @"Priority 3";
+        
+        [v addSubview:label];
+        
+    }
+    
+    return v;
+    
+}
+
 #pragma mark - events
 - (IBAction)callButtonTapped:(id)sender {
 }
 - (IBAction)emailButtonTapped:(id)sender {
 }
 - (IBAction)textButtonTapped:(id)sender {
+}
+- (IBAction)addTaskButtonTapped:(id)sender {
 }
 
 

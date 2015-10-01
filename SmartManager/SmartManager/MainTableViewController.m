@@ -52,7 +52,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 400;
+    return self.view.frame.size.height;
 }
 
 
