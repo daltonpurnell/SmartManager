@@ -2,8 +2,6 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/CustomExpandingCell.m \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/CustomExpandingCell.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/CustomTaskCell.h \
-  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Appearance.h \
-  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AppDelegate.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/EmployeeController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Employee.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PF_Twitter.h \
@@ -32,6 +30,8 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PFACL.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/Parse.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Modules/module.modulemap \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Appearance.h \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AppDelegate.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/MainTableViewController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Headers/PFTextField.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Headers/PFSignUpViewController.h \

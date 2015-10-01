@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomTaskCell.h"
+#import "EmployeeController.h"
 
 @interface CustomExpandingCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tasksTableView;
@@ -16,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
 @property (weak, nonatomic) IBOutlet UIButton *textButton;
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
+@property (nonatomic, strong) Employee *employee;
 
 @end

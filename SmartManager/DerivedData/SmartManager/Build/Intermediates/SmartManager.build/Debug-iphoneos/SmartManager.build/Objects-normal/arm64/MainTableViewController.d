@@ -3,6 +3,8 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/MainTableViewController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/CustomExpandingCell.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/CustomTaskCell.h \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/EmployeeController.h \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Employee.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PF_Twitter.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PFTwitterUtils.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PFPush.h \
@@ -46,7 +48,5 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/ParseUI.framework/Modules/module.modulemap \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Appearance.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AppDelegate.h \
-  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/EmployeeController.h \
-  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Employee.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AddTaskViewController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/SecondViewController.h

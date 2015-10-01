@@ -24,11 +24,12 @@
     self.tasksTableView.dataSource = self;
     
     [Appearance initializeAppearanceDefaults];
-
     
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.employee.firstName, self.employee.lastName];
+
 }
 
-#pragma mark - Table view data source
+#pragma mark - tasks table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     

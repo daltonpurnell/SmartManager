@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
 
     
     self.tableView.delegate = self;
@@ -51,6 +53,29 @@
         NSLog(@"Access to contacts %@ by user", granted ? @"granted" : @"denied");
     });
 
+    
+                // parse log in
+                        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+                        [logInViewController setDelegate:self];
+                        [logInViewController setFields:PFLogInFieldsUsernameAndPassword
+                         | PFLogInFieldsSignUpButton
+                         | PFLogInFieldsLogInButton
+                         | PFLogInFieldsDismissButton
+                         | PFLogInFieldsUsernameAndPassword];
+    
+                        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+                        [signUpViewController setDelegate:self];
+                        [signUpViewController setFields:PFSignUpFieldsUsernameAndPassword
+                         | PFSignUpFieldsDismissButton
+                         | PFSignUpFieldsSignUpButton];
+    
+                        [logInViewController setSignUpController:signUpViewController];
+    
+                        [self presentViewController:logInViewController animated:YES completion:^{
+    
+                            // nothing
+                        }];
+    
 }
 
 
@@ -64,8 +89,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 3;
+    return [EmployeeController sharedInstance].employees.count;
 }
+
 
 
 - (CustomExpandingCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,43 +111,7 @@
 
 
 - (IBAction)addEmployee:(id)sender {
-//    
-//    PFUser *user = [PFUser currentUser];
-//    
-//    if (!user) {
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Whoa there, nelly!" message:@"You need to log in or sign up before you can add employees." preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            
-//            // parse log in
-//                    PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-//                    [logInViewController setDelegate:self];
-//                    [logInViewController setFields:PFLogInFieldsUsernameAndPassword
-//                     | PFLogInFieldsSignUpButton
-//                     | PFLogInFieldsLogInButton
-//                     | PFLogInFieldsDismissButton
-//                     | PFLogInFieldsUsernameAndPassword];
-//            
-//                    PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
-//                    [signUpViewController setDelegate:self];
-//                    [signUpViewController setFields:PFSignUpFieldsUsernameAndPassword
-//                     | PFSignUpFieldsDismissButton
-//                     | PFSignUpFieldsSignUpButton];
-//            
-//                    [logInViewController setSignUpController:signUpViewController];
-//            
-//                    [self presentViewController:logInViewController animated:YES completion:^{
-//                        
-//                        // nothing
-//                    }];
-//            
-//        }]];
-//        
-//        [alert addAction:[UIAlertAction actionWithTitle:@"No, thanks" style:UIAlertActionStyleCancel handler:nil]];
-//        
-//
-//    } else {
-    
+
     // Show ABPeoplePickerNavigationController
     ABPeoplePickerNavigationController *picker = [ABPeoplePickerNavigationController new];
     picker.peoplePickerDelegate = self;
@@ -246,6 +236,8 @@
                                      
                                      // now load all these things into a person object and save it to parse
                                      [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
+                                     
+                                     [self.tableView reloadData];
                                  }]];
                                  
                                 [alert addAction:[UIAlertAction actionWithTitle:@"Nevermind" style:UIAlertActionStyleCancel handler:nil]];
@@ -280,15 +272,6 @@
 
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    
-    ABPeoplePickerNavigationController *picker = [ABPeoplePickerNavigationController new];
-    picker.peoplePickerDelegate = self;
-    picker.displayedProperties = @[@(kABPersonEmailProperty)];
-    //    picker.predicateForEnablingPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count > 0"];
-    //    picker.predicateForSelectionOfPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count = 1"];
-    
-    [self presentViewController:picker animated:YES completion:nil];
-
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -337,16 +320,7 @@
 
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
     
-    ABPeoplePickerNavigationController *picker = [ABPeoplePickerNavigationController new];
-    picker.peoplePickerDelegate = self;
-    picker.displayedProperties = @[@(kABPersonEmailProperty)];
-    //    picker.predicateForEnablingPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count > 0"];
-    //    picker.predicateForSelectionOfPerson = [NSPredicate predicateWithFormat:@"emailAddresses.@count = 1"];
-    
-    [self presentViewController:picker animated:YES completion:nil];
-
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
