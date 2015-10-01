@@ -27,7 +27,8 @@
     [super viewDidLoad];
     
     
-
+    self.refreshControl = [UIRefreshControl new];
+    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -53,7 +54,9 @@
         NSLog(@"Access to contacts %@ by user", granted ? @"granted" : @"denied");
     });
 
-    
+    PFUser *currentUser = [PFUser currentUser];
+    if (!currentUser) { // No user logged in
+
                 // parse log in
                         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
                         [logInViewController setDelegate:self];
@@ -75,9 +78,17 @@
     
                             // nothing
                         }];
+    }
     
 }
 
+//-(void)viewWillAppear:(BOOL)animated {
+//    
+//    [[EmployeeController sharedInstance]loadEmployeesFromParse:^(NSError *error) {
+//        // something
+//    }];
+
+//}
 
 #pragma mark - Table view data source
 
@@ -235,7 +246,7 @@
                                  [alert addAction:[UIAlertAction actionWithTitle:@"Add Employee" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                                      
                                      // now load all these things into a person object and save it to parse
-                                     [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
+                                    self.employee = [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
                                      
                                      [self.tableView reloadData];
                                  }]];
@@ -334,6 +345,19 @@
 
 - (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
     NSLog(@"User dismissed the signUpViewController");
+}
+
+
+#pragma mark - loading table view with correct data and av audio player
+
+
+-(void)refreshTable {
+    
+    [self.refreshControl beginRefreshing];
+    [[EmployeeController sharedInstance] loadEmployeesFromParse:^(NSError *error) {
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 

@@ -16,5 +16,6 @@
 @interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
+@property (strong, nonatomic) Employee *employee;
 
 @end
