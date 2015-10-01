@@ -17,6 +17,7 @@
 		CF829AA11B67F8DF0056AC89 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF829AA01B67F8DF0056AC89 /* MainTableViewController.m */; };
 		CF829AA41B67F9100056AC89 /* CustomExpandingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF829AA31B67F9100056AC89 /* CustomExpandingCell.m */; };
 		CF829AA71B67FB340056AC89 /* CustomTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF829AA61B67FB340056AC89 /* CustomTaskCell.m */; };
+		CFA504531BBD971500CDA342 /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA504521BBD971500CDA342 /* AddTaskViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		CF829AA31B67F9100056AC89 /* CustomExpandingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomExpandingCell.m; sourceTree = "<group>"; };
 		CF829AA51B67FB340056AC89 /* CustomTaskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTaskCell.h; sourceTree = "<group>"; };
 		CF829AA61B67FB340056AC89 /* CustomTaskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTaskCell.m; sourceTree = "<group>"; };
+		CFA504511BBD971500CDA342 /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		CFA504521BBD971500CDA342 /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				CF829AA31B67F9100056AC89 /* CustomExpandingCell.m */,
 				CF829AA51B67FB340056AC89 /* CustomTaskCell.h */,
 				CF829AA61B67FB340056AC89 /* CustomTaskCell.m */,
+				CFA504511BBD971500CDA342 /* AddTaskViewController.h */,
+				CFA504521BBD971500CDA342 /* AddTaskViewController.m */,
 				CF829A801B67F2BA0056AC89 /* SecondViewController.h */,
 				CF829A811B67F2BA0056AC89 /* SecondViewController.m */,
 				CF829A831B67F2BA0056AC89 /* Main.storyboard */,
@@ -234,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFA504531BBD971500CDA342 /* AddTaskViewController.m in Sources */,
 				CF829A821B67F2BA0056AC89 /* SecondViewController.m in Sources */,
 				CF829AA41B67F9100056AC89 /* CustomExpandingCell.m in Sources */,
 				CF829A7C1B67F2BA0056AC89 /* AppDelegate.m in Sources */,
