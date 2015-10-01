@@ -11,6 +11,6 @@
 @import AddressBook;
 @import AddressBookUI;
 
-@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
+@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
 
 @end
