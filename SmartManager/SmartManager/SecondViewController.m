@@ -20,6 +20,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [Appearance initializeAppearanceDefaults];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:80/255.0 green:157/255.0 blue:64/255.0 alpha:1]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
 
 }
 

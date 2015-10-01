@@ -27,6 +27,17 @@
     
     [Appearance initializeAppearanceDefaults];
     
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:80/255.0 green:157/255.0 blue:64/255.0 alpha:1]];
+    [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    [self.addEmployeeButton setTintColor:[UIColor whiteColor]];
+    self.title = @"SMART Manager";
+    [self.navigationController.navigationBar setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor],
+                                                           NSForegroundColorAttributeName,
+                                                           [UIFont fontWithName:@"SystemFont" size: 30.0],
+                                                           NSFontAttributeName,
+                                                           nil]];
+
 }
 
 

@@ -12,5 +12,6 @@
 @import AddressBookUI;
 
 @interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
 
 @end

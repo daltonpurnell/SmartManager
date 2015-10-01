@@ -341,6 +341,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addEmployeeButton" destination="xcN-sm-C3C" id="UAp-ZI-Bbp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwC-3Y-fwo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
