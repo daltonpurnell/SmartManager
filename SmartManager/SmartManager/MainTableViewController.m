@@ -123,7 +123,7 @@
 {
     
     // get email
-    NSString *emailAddress = @"no email address";
+    NSString *emailAddress = @"No Email Address";
     ABMultiValueRef emails = ABRecordCopyValue(person, kABPersonEmailProperty);
     if (emails)
     {
@@ -141,7 +141,7 @@
     self.savedEmail = emailAddress;
     
     // get phone number
-    NSString *phoneNumber = @"no phone number";
+    NSString *phoneNumber = @"No Phone Number";
     ABMultiValueRef phoneNumbers = ABRecordCopyValue(person, kABPersonPhoneProperty);
     if (phoneNumbers) {
         if (ABMultiValueGetCount(phoneNumbers) > 0)
@@ -160,7 +160,7 @@
     
     
     // get address
-    NSString *address = @"no address";
+    NSString *address = @"No Address";
     ABMultiValueRef addresses = ABRecordCopyValue(person, kABPersonAddressProperty);
     if (addresses) {
         if (ABMultiValueGetCount(phoneNumbers) > 0)
@@ -183,7 +183,7 @@
 
     
     // get lastname
-    NSString *lastName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString *lastName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
     self.savedLastName = lastName;
     
     [self dismissViewControllerAnimated:YES
