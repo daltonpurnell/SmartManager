@@ -4,6 +4,7 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/CustomTaskCell.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/EmployeeController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Employee.h \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Task.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PF_Twitter.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PFTwitterUtils.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/parse-library-1.7.5/Parse.framework/Headers/PFPush.h \

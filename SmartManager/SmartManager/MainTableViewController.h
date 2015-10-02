@@ -13,7 +13,7 @@
 @import Parse;
 @import ParseUI;
 
-@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
+@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
 @property (strong, nonatomic) Employee *employee;

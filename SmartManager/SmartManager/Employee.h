@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Task.h"
+
 @import Parse;
+
+@class Task;
 
 @interface Employee : PFObject <PFSubclassing>
 

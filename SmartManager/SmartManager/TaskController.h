@@ -13,7 +13,7 @@
 
 + (TaskController *) sharedInstance;
 
-- (void)createEntryWithName:(NSString *) name
+- (void)createTaskWithName:(NSString *) name
                     dueDate:(NSDate *) dueDate
                    nextStep:(NSString *) nextStep
             nextStepDueDate:(NSDate *) nextStepDueDate

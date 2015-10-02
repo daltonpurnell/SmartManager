@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSString *savedAddress;
 @property (strong, nonatomic) NSString *savedFirstName;
 @property (strong, nonatomic) NSString *savedLastName;
+@property (strong, nonatomic) NSIndexPath *selectedCellIndexPath;
+
 
 @end
 
@@ -78,13 +80,9 @@
     
 }
 
-//-(void)viewWillAppear:(BOOL)animated {
-//    
-//    [[EmployeeController sharedInstance]loadEmployeesFromParse:^(NSError *error) {
-//        // something
-//    }];
 
-//}
+    
+
 
 #pragma mark - Table view data source
 
@@ -107,13 +105,29 @@
     return customCell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *previousSelectedIndexPath = self.selectedCellIndexPath;  // <- save previously selected cell
+    self.selectedCellIndexPath = indexPath;
+    if (previousSelectedIndexPath) { // <- reload previously selected cell (if not nil)
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:previousSelectedIndexPath]
+                         withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.selectedCellIndexPath]
+                     withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 
 #pragma mark - table view delegate
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return self.view.frame.size.height;
+    if(self.selectedCellIndexPath != nil
+       && [self.selectedCellIndexPath compare:indexPath] == NSOrderedSame)
+       
+        return self.view.frame.size.height;
+    
+    return 64;
 }
 
 
@@ -358,6 +372,26 @@
 
 // [navigationController setNavigationBarHidden: YES animated:YES]
 
+//#pragma mark - scroll view delegate methods
+//
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)sender {
+//    
+//    //Initializing the views and the new frame sizes.
+//    UINavigationBar *navbar = self.navigationController.navigationBar;
+//    UIView *tableView = self.view;
+//    
+//    CGRect navBarFrame = self.navigationController.navigationBar.frame;
+//    CGRect tableFrame = self.view.frame;
+//    
+//    //changing the origin.y based on the current scroll view.
+//    //Adding +20 for the Status Bar since the offset is tied into that.
+//    navBarFrame.origin.y = MIN(0, (sender.contentOffset.y * -1)) +20;
+//    navbar.frame = navBarFrame;
+//    
+//    tableFrame.origin.y = MIN(0,MAX(-44,(sender.contentOffset.y * -1)));
+//    tableView.frame = tableFrame;
+//}
 
 /*
 #pragma mark - Navigation
