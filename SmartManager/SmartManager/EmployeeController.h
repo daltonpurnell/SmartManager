@@ -23,7 +23,9 @@
 
                             EmailAddress:(NSString *) emailAddress
 
-                                 Address:(NSString *) address;
+                                 Address:(NSString *) address
+
+                                   Photo:(PFFile *) photo;
 
 -(void)loadEmployeesFromParse:(void (^)(NSError *error))completion;
 

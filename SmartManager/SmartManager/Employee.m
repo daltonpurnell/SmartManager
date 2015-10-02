@@ -20,6 +20,7 @@ static NSString * const EmployeeClassName = @"Employee";
 @dynamic address;
 @dynamic user;
 @dynamic task;
+@dynamic photo;
 
 + (NSString *)parseClassName {
     return EmployeeClassName;

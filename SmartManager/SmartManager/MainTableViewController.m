@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSString *savedFirstName;
 @property (strong, nonatomic) NSString *savedLastName;
 @property (strong, nonatomic) NSIndexPath *selectedCellIndexPath;
-
+@property (strong, nonatomic) PFFile *savedPhoto;
 
 @end
 
@@ -237,10 +237,20 @@
     }
     self.savedAddress = address;
     
+    // get photo
+    CFDataRef  photo = ABPersonCopyImageData(person);
+    UIImage* image = [UIImage imageWithData:(__bridge NSData*)photo];
+    if (image) {
+        // convert to pffile and save to savedphoto
+        PFFile *imageFile = [PFFile fileWithData:UIImageJPEGRepresentation(image,0.40)];
+        self.savedPhoto = imageFile;
+    } else {
+        
+        NSLog(@"No profile pic");
+    }
+
 
     // get firstname
-    
-    
     NSString *firstName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
     
     if (!firstName) {
@@ -263,8 +273,8 @@
 
                                  [alert addAction:[UIAlertAction actionWithTitle:@"Add Employee" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                                      
-                                     // now load all these things into a person object and save it to parse
-                                    [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
+                                     // now load all these things into an employee object and save it to parse
+                                     [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address Photo:self.savedPhoto];
                                      
                                      // TODO: this isn't working. the employees are all being saved to parse, but the names show up as null on the cell
                                      [self.tableView reloadData];

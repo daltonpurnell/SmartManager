@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString *emailAddress;
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) PFUser *user;
+@property (nonatomic, strong) PFFile *photo;
 
 @property (nonatomic, strong) Task *task;
 

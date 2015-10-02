@@ -20,13 +20,26 @@
 
     // Configure the view for the selected state
     
+    
+    self.photo.layer.borderWidth = 1.5f;
+    self.photo.layer.borderColor = [UIColor colorWithRed:80/255.0 green:157/255.0 blue:64/255.0 alpha:0.75].CGColor;
+    self.photo.layer.masksToBounds = NO;
+    self.photo.clipsToBounds = YES;
+    self.photo.layer.cornerRadius = 21.5;
+    
+    
+    
     self.tasksTableView.delegate = self;
     self.tasksTableView.dataSource = self;
     
     [Appearance initializeAppearanceDefaults];
     
-    // TODO: this isn't working. the employees are all being saved to parse, but the names show up as null on the cell
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.employee.firstName, self.employee.lastName];
+    
+    // if there's a file stored for the employee, load it into the image view
+    if (self.photo.file) {
+        self.photo.file = self.employee.photo;
+    }
 }
 
 

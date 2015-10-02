@@ -287,8 +287,8 @@
                                                 <action selector="textButtonTapped:" destination="V40-vh-u2E" eventType="touchUpInside" id="m7T-42-Jp5"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Contacts-64" translatesAutoresizingMaskIntoConstraints="NO" id="5nS-1S-91p" customClass="PFImageView">
-                                            <rect key="frame" x="8" y="16" width="44" height="44"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="5nS-1S-91p" customClass="PFImageView">
+                                            <rect key="frame" x="8" y="13" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="eDZ-H8-eWq"/>
                                                 <constraint firstAttribute="height" constant="44" id="k4x-rC-f0I"/>
@@ -318,7 +318,7 @@
                                         <constraint firstItem="k4c-H6-TZU" firstAttribute="centerY" secondItem="z5J-xf-T5W" secondAttribute="centerY" id="Pdn-eA-QH6"/>
                                         <constraint firstItem="1Ym-ln-ybj" firstAttribute="leading" secondItem="JqC-VS-817" secondAttribute="trailing" constant="8" id="Pwf-4c-3q6"/>
                                         <constraint firstItem="JqC-VS-817" firstAttribute="leading" secondItem="5nS-1S-91p" secondAttribute="trailing" constant="8" id="Wuf-uw-wlN"/>
-                                        <constraint firstItem="5nS-1S-91p" firstAttribute="top" secondItem="v5c-fT-WvO" secondAttribute="topMargin" constant="8" id="X4F-hf-BbK"/>
+                                        <constraint firstItem="5nS-1S-91p" firstAttribute="top" secondItem="v5c-fT-WvO" secondAttribute="topMargin" constant="5" id="X4F-hf-BbK"/>
                                         <constraint firstItem="5nS-1S-91p" firstAttribute="centerY" secondItem="JqC-VS-817" secondAttribute="centerY" id="ff8-JV-y6W"/>
                                         <constraint firstItem="jyV-EQ-b6x" firstAttribute="centerY" secondItem="k4c-H6-TZU" secondAttribute="centerY" id="j01-z0-vfM"/>
                                         <constraint firstItem="WPE-MC-bJN" firstAttribute="top" secondItem="v5c-fT-WvO" secondAttribute="topMargin" constant="44" id="jBc-tf-YOW"/>
@@ -582,7 +582,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Contacts-64" width="64" height="64"/>
         <image name="Date" width="32" height="32"/>
         <image name="Edit-32 (2)" width="32" height="32"/>
         <image name="Restart-26" width="26" height="26"/>
@@ -593,5 +592,6 @@
         <image name="Unchecked Checkbox-32" width="32" height="32"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="user" width="65" height="65"/>
     </resources>
 </document>

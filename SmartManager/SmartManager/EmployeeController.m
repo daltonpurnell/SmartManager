@@ -44,6 +44,8 @@
 
                                  Address:(NSString *) address
 
+                                   Photo:(PFFile *)photo
+
 
 {
     
@@ -54,7 +56,8 @@
     employee.phoneNumber = phoneNumber;
     employee.emailAddress = emailAddress;
     employee.address = address;
-
+    employee.photo = photo;
+    
     PFUser *user = [PFUser currentUser];
     employee.user = user;
     employee.ACL = [PFACL ACLWithUser:user];
