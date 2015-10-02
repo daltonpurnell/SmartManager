@@ -13,10 +13,17 @@
 @import Parse;
 @import ParseUI;
 @import MessageUI;
+@import CoreLocation;
+
 
 static NSString *const NoPhoneNumberNotificationKey = @"No phone number";
 
-@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
+@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate> {
+    
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+
+}
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
 @property (strong, nonatomic) Employee *employee;

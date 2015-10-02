@@ -28,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    geocoder = [[CLGeocoder alloc] init];
+
     [self registerForNotifications];
     
     self.tableView.delegate = self;
@@ -246,7 +248,7 @@
         self.savedPhoto = imageFile;
     } else {
         
-        NSLog(@"No profile pic");
+        NSLog(@"No profile picture");
     }
 
 
