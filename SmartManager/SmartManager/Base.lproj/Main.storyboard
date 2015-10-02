@@ -500,6 +500,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Task" id="7ox-S2-2ZZ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="6RQ-hn-hbf">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="BiM-pe-ccX" id="eh6-Vd-6IU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Jj3-rH-a9Q">
                             <connections>
                                 <action selector="doneButtonTapped:" destination="BiM-pe-ccX" id="M64-XM-Npg"/>
@@ -508,6 +513,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="NextStepDueDateButton" destination="Xnz-yB-lGY" id="6fx-kj-iqm"/>
+                        <outlet property="cancelButton" destination="6RQ-hn-hbf" id="QJ7-C3-Uts"/>
+                        <outlet property="doneButton" destination="Jj3-rH-a9Q" id="Gj4-10-ajJ"/>
                         <outlet property="imageView1" destination="LSN-fE-0vv" id="lvB-kN-vk1"/>
                         <outlet property="imageView2" destination="Hxc-P6-pYj" id="sPM-4d-Xdr"/>
                         <outlet property="imageView3" destination="Er8-bJ-pgz" id="nPo-FJ-kxx"/>

@@ -18,5 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView3;
 @property (weak, nonatomic) IBOutlet UILabel *taskDueDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nextStepDueDateLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end
