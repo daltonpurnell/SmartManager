@@ -106,13 +106,40 @@
 
 #pragma mark - events
 - (IBAction)callButtonTapped:(id)sender {
+    
+    // if the phoneNumber string contains numbers and his more than 7 characters long
+    if (self.employee.phoneNumber.length >= 7 && [self.employee.phoneNumber rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound)
+    {
+        
+        NSString *strippedPhoneNumber = [[self.employee.phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+        
+        NSLog(@"%@", strippedPhoneNumber);
+        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", strippedPhoneNumber]]];
+    } else {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NoPhoneNumberNotificationKey object:nil userInfo:nil];
+    }
 }
+
+
 - (IBAction)emailButtonTapped:(id)sender {
+    
+    
+    
 }
 - (IBAction)textButtonTapped:(id)sender {
+    
+    
+    
 }
 - (IBAction)addTaskButtonTapped:(id)sender {
+    
+    
+    // this is done in storyboard
 }
+
+
 
 
 

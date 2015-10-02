@@ -28,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self registerForNotifications];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -129,7 +131,7 @@
        
         return self.view.frame.size.height;
     
-    return 64;
+    return 60;
 }
 
 
@@ -366,6 +368,36 @@
     
     [self.tableView reloadData];
     
+}
+
+
+#pragma mark - nsnotifications methods
+
+-(void)registerForNotifications {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToNoPhoneNumber:) name:NoPhoneNumberNotificationKey object:nil];
+}
+
+-(void)respondToNoPhoneNumber:(NSNotification *)notification {
+    
+    // send notification to vc to present alert view "this employee does not have a phone number on file"
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"This employee does not have a phone number on file" preferredStyle:UIAlertControllerStyleAlert];
+    
+            [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+    
+            [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+
+-(void)unregisterForNotifications {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name: NoPhoneNumberNotificationKey object:nil];
+}
+
+-(void)dealloc {
+    
+    [self unregisterForNotifications];
 }
 
 

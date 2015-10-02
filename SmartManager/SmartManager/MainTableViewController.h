@@ -13,6 +13,8 @@
 @import Parse;
 @import ParseUI;
 
+static NSString *const NoPhoneNumberNotificationKey = @"No phone number";
+
 @interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
