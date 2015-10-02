@@ -123,23 +123,31 @@
 }
 
 
-- (IBAction)emailButtonTapped:(id)sender {
-    
-}
-
-
-- (IBAction)textButtonTapped:(id)sender {
-    
-           [self.delegate textButtonTapped:self.indexPath];
-    
-}
-
-
 - (IBAction)addTaskButtonTapped:(id)sender {
     
     
     // this is done in storyboard
 }
+
+
+
+# pragma mark - email and text delegate methods
+
+- (IBAction)emailButtonTapped:(id)sender {
+    
+    [self.emailDelegate emailButtonTapped:self.indexPath];
+    
+}
+
+
+
+- (IBAction)textButtonTapped:(id)sender {
+    
+    [self.delegate textButtonTapped:self.indexPath];
+    
+}
+
+
 
 
 

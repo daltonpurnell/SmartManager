@@ -10,7 +10,7 @@
 #import "Appearance.h"
 #import "EmployeeController.h"
 
-@interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource, textButtonTappedDelegate>
+@interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource, textButtonTappedDelegate, emailButtonTappedDelegate>
 
 @property (strong, nonatomic) CustomExpandingCell *customCell;
 @property (strong, nonatomic) NSString *savedEmail;
@@ -379,8 +379,7 @@
 -(void)registerForNotifications {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToNoPhoneNumber:) name:NoPhoneNumberNotificationKey object:nil];
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToMFMessageCompose:) name:MFMessageComposeNotificationKey object:nil];
+
 }
 
 -(void)respondToNoPhoneNumber:(NSNotification *)notification {
@@ -405,30 +404,63 @@
 }
 
 
+
+
 #pragma mark - mfmessagecompose delegate method
 
 -(void)textButtonTapped:(NSIndexPath*)indexPath {
     Employee *employee = [[EmployeeController sharedInstance].employees objectAtIndex:indexPath.row];
-
+    
     // if the phoneNumber string contains numbers and his more than 7 characters long
     if (employee.phoneNumber.length >= 7 && [employee.phoneNumber rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound)
     {
         
-    
-    NSString *strippedPhoneNumber = [[employee.phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
-    
-    NSLog(@"%@", strippedPhoneNumber);
-    
-    // launch mfmessagecompose
-    MFMessageComposeViewController *messageVC = [MFMessageComposeViewController new];
-    messageVC.messageComposeDelegate = self;
-    messageVC.recipients = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@", strippedPhoneNumber], nil];
-    
-    [self presentViewController:messageVC animated:YES completion:nil];
+        
+        NSString *strippedPhoneNumber = [[employee.phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+        
+        NSLog(@"%@", strippedPhoneNumber);
+        
+        // launch mfmessagecompose
+        MFMessageComposeViewController *messageVC = [MFMessageComposeViewController new];
+        messageVC.messageComposeDelegate = self;
+        messageVC.recipients = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@", strippedPhoneNumber], nil];
+        
+        [self presentViewController:messageVC animated:YES completion:nil];
         
     } else {
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"This employee does not have a phone number on file" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+
+
+
+
+#pragma mark - email delegate method
+
+-(void)emailButtonTapped:(NSIndexPath*)indexPath {
+    Employee *employee = [[EmployeeController sharedInstance].employees objectAtIndex:indexPath.row];
+    
+    // if the email string contains @
+    NSCharacterSet *cset = [NSCharacterSet characterSetWithCharactersInString:@"@"];
+    if ([employee.emailAddress rangeOfCharacterFromSet:cset].location != NSNotFound)
+    {
+        // launch mfmailcompose
+        MFMailComposeViewController *mailViewController = [MFMailComposeViewController new];
+            mailViewController.mailComposeDelegate = self;
+            [mailViewController setToRecipients:[NSArray arrayWithObjects:[NSString stringWithFormat:@"%@", employee.emailAddress], nil]];
+        
+            [self presentViewController:mailViewController animated:YES completion:nil];
+
+        
+    } else {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"This employee does not have an email address on file" preferredStyle:UIAlertControllerStyleAlert];
         
         [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
         

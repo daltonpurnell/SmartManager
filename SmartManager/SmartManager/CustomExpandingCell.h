@@ -12,10 +12,12 @@
 #import "MainTableViewController.h"
 
 @protocol textButtonTappedDelegate;
+@protocol emailButtonTappedDelegate;
 
 
 @interface CustomExpandingCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) id <textButtonTappedDelegate>delegate;
+@property (nonatomic, strong) id <emailButtonTappedDelegate>emailDelegate;
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tasksTableView;
@@ -27,11 +29,20 @@
 @property (nonatomic, strong) Employee *employee;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
-
 @end
+
+
 
 @protocol textButtonTappedDelegate <NSObject>
 
 - (IBAction)textButtonTapped:(NSIndexPath *)indexPath;
+
+@end
+
+
+
+@protocol emailButtonTappedDelegate <NSObject>
+
+- (IBAction)emailButtonTapped:(NSIndexPath *)indexPath;
 
 @end

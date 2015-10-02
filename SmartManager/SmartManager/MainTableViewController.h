@@ -15,9 +15,8 @@
 @import MessageUI;
 
 static NSString *const NoPhoneNumberNotificationKey = @"No phone number";
-static NSString *const MFMessageComposeNotificationKey = @"Launch messages";
 
-@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate, MFMessageComposeViewControllerDelegate>
+@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
 @property (strong, nonatomic) Employee *employee;
