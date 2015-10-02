@@ -31,7 +31,6 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    
     [Appearance initializeAppearanceDefaults];
     
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:80/255.0 green:157/255.0 blue:64/255.0 alpha:1]];
@@ -101,7 +100,9 @@
 
 - (CustomExpandingCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomExpandingCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    self.employee = customCell.employee;
+    
+    Employee *employee = [EmployeeController sharedInstance].employees[indexPath.row];
+    customCell.employee = employee;
     
     return customCell;
 }
@@ -257,10 +258,9 @@
                                  [alert addAction:[UIAlertAction actionWithTitle:@"Add Employee" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                                      
                                      // now load all these things into a person object and save it to parse
-                                    self.employee = [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
+                                    [[EmployeeController sharedInstance]createEmployeeWithFirstName:firstName LastName:lastName PhoneNumber:phoneNumber EmailAddress:emailAddress Address:address];
                                      
                                      // TODO: this isn't working. the employees are all being saved to parse, but the names show up as null on the cell
-                                     self.customCell.employee = self.employee;
                                      [self.tableView reloadData];
                                  }]];
                                  
@@ -368,31 +368,6 @@
     
 }
 
-
-// hide navigation bar when table view begins scrolling
-
-// [navigationController setNavigationBarHidden: YES animated:YES]
-
-//#pragma mark - scroll view delegate methods
-//
-//
-//- (void)scrollViewDidScroll:(UIScrollView *)sender {
-//    
-//    //Initializing the views and the new frame sizes.
-//    UINavigationBar *navbar = self.navigationController.navigationBar;
-//    UIView *tableView = self.view;
-//    
-//    CGRect navBarFrame = self.navigationController.navigationBar.frame;
-//    CGRect tableFrame = self.view.frame;
-//    
-//    //changing the origin.y based on the current scroll view.
-//    //Adding +20 for the Status Bar since the offset is tied into that.
-//    navBarFrame.origin.y = MIN(0, (sender.contentOffset.y * -1)) +20;
-//    navbar.frame = navBarFrame;
-//    
-//    tableFrame.origin.y = MIN(0,MAX(-44,(sender.contentOffset.y * -1)));
-//    tableView.frame = tableFrame;
-//}
 
 /*
 #pragma mark - Navigation
