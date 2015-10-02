@@ -69,9 +69,14 @@
 - (IBAction)doneButtonTapped:(id)sender {
     
     
+    
 // create task
-    
-    
+//    [TaskController sharedInstance]createTaskWithName:self.taskNameTextField.text dueDate:self.taskDueDateLabel.text nextStep:self.nextStepTextView.text nextStepDueDate:self.nextStepDueDateLabel.text note:self.notesTextView.text priority:<#(NSNumber *)#> forEmployee:self.employee completion:^(BOOL succeeded, Task *task) {
+//        
+//        NSLog(@"Successfully saved to Parse");
+//    }
+//
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -101,6 +101,7 @@
 
 - (CustomExpandingCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomExpandingCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    self.employee = customCell.employee;
     
     return customCell;
 }
