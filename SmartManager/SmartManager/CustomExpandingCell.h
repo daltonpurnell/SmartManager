@@ -11,7 +11,13 @@
 #import "EmployeeController.h"
 #import "MainTableViewController.h"
 
+@protocol textButtonTappedDelegate;
+
+
 @interface CustomExpandingCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) id <textButtonTappedDelegate>delegate;
+
+
 @property (weak, nonatomic) IBOutlet UITableView *tasksTableView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
@@ -19,4 +25,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *textButton;
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
 @property (nonatomic, strong) Employee *employee;
+@property (strong, nonatomic) NSIndexPath *indexPath;
+
+
+@end
+
+@protocol textButtonTappedDelegate <NSObject>
+
+- (IBAction)textButtonTapped:(NSIndexPath *)indexPath;
+
 @end

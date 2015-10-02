@@ -12,12 +12,15 @@
 @import AddressBookUI;
 @import Parse;
 @import ParseUI;
+@import MessageUI;
 
 static NSString *const NoPhoneNumberNotificationKey = @"No phone number";
+static NSString *const MFMessageComposeNotificationKey = @"Launch messages";
 
-@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate>
+@interface MainTableViewController : UITableViewController <ABPeoplePickerNavigationControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIScrollViewDelegate, MFMessageComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addEmployeeButton;
+@property (strong, nonatomic) Employee *employee;
 
 
 @end

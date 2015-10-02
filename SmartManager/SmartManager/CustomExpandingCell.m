@@ -125,21 +125,21 @@
 
 - (IBAction)emailButtonTapped:(id)sender {
     
-    
-    
 }
+
+
 - (IBAction)textButtonTapped:(id)sender {
     
-    
+           [self.delegate textButtonTapped:self.indexPath];
     
 }
+
+
 - (IBAction)addTaskButtonTapped:(id)sender {
     
     
     // this is done in storyboard
 }
-
-
 
 
 

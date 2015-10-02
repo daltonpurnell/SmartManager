@@ -10,7 +10,7 @@
 #import "Appearance.h"
 #import "EmployeeController.h"
 
-@interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource, textButtonTappedDelegate>
 
 @property (strong, nonatomic) CustomExpandingCell *customCell;
 @property (strong, nonatomic) NSString *savedEmail;
@@ -105,6 +105,9 @@
     
     Employee *employee = [EmployeeController sharedInstance].employees[indexPath.row];
     customCell.employee = employee;
+    
+    customCell.indexPath = indexPath;
+    customCell.delegate = self;
     
     return customCell;
 }
@@ -376,6 +379,8 @@
 -(void)registerForNotifications {
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToNoPhoneNumber:) name:NoPhoneNumberNotificationKey object:nil];
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(respondToMFMessageCompose:) name:MFMessageComposeNotificationKey object:nil];
 }
 
 -(void)respondToNoPhoneNumber:(NSNotification *)notification {
@@ -389,7 +394,6 @@
 }
 
 
-
 -(void)unregisterForNotifications {
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name: NoPhoneNumberNotificationKey object:nil];
@@ -399,6 +403,39 @@
     
     [self unregisterForNotifications];
 }
+
+
+#pragma mark - mfmessagecompose delegate method
+
+-(void)textButtonTapped:(NSIndexPath*)indexPath {
+    Employee *employee = [[EmployeeController sharedInstance].employees objectAtIndex:indexPath.row];
+
+    // if the phoneNumber string contains numbers and his more than 7 characters long
+    if (employee.phoneNumber.length >= 7 && [employee.phoneNumber rangeOfCharacterFromSet:[NSCharacterSet decimalDigitCharacterSet]].location != NSNotFound)
+    {
+        
+    
+    NSString *strippedPhoneNumber = [[employee.phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    
+    NSLog(@"%@", strippedPhoneNumber);
+    
+    // launch mfmessagecompose
+    MFMessageComposeViewController *messageVC = [MFMessageComposeViewController new];
+    messageVC.messageComposeDelegate = self;
+    messageVC.recipients = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%@", strippedPhoneNumber], nil];
+    
+    [self presentViewController:messageVC animated:YES completion:nil];
+        
+    } else {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"This employee does not have a phone number on file" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
 
 
 /*
