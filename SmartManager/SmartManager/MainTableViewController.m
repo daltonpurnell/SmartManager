@@ -108,6 +108,7 @@
     
     customCell.indexPath = indexPath;
     customCell.delegate = self;
+    customCell.emailDelegate = self;
     
     return customCell;
 }
@@ -374,6 +375,7 @@
 }
 
 
+
 #pragma mark - nsnotifications methods
 
 -(void)registerForNotifications {
@@ -402,6 +404,7 @@
     
     [self unregisterForNotifications];
 }
+
 
 
 
@@ -441,6 +444,7 @@
 
 
 
+
 #pragma mark - email delegate method
 
 -(void)emailButtonTapped:(NSIndexPath*)indexPath {
@@ -468,6 +472,23 @@
     }
 }
 
+
+#pragma mark - message compose delegate method
+
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
+#pragma mark - mail compose delegate method 
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 /*
