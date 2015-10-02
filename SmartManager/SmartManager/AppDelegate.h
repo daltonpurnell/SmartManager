@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EmployeeController.h"
 @import Parse;
-
+@import ParseUI;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

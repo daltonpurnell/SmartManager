@@ -23,6 +23,8 @@
                   clientKey:@"9iJWlGJaTYNCSLB2WXBYIcrWau6BOudxocZx6pDv"];
     
     [Employee registerSubclass];
+    [Task registerSubclass];
+    [PFImageView class];
     
     return YES;
 }

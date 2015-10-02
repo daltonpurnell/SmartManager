@@ -135,7 +135,7 @@
        
         return self.view.frame.size.height;
     
-    return 60;
+    return 70;
 }
 
 

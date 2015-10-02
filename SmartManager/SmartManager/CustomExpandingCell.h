@@ -10,6 +10,8 @@
 #import "CustomTaskCell.h"
 #import "EmployeeController.h"
 #import "MainTableViewController.h"
+@import Parse;
+@import ParseUI;
 
 @protocol textButtonTappedDelegate;
 @protocol emailButtonTappedDelegate;
@@ -26,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *emailButton;
 @property (weak, nonatomic) IBOutlet UIButton *textButton;
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
+@property (weak, nonatomic) IBOutlet PFImageView *photo;
+
 @property (nonatomic, strong) Employee *employee;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
