@@ -17,9 +17,9 @@
 @property (strong, nonatomic) PFUser *user;
 
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSDate *dueDate;
+@property (strong, nonatomic) NSString *dueDate;
 @property (strong, nonatomic) NSString *nextStep;
-@property (strong, nonatomic) NSDate *nextStepDueDate;
+@property (strong, nonatomic) NSString *nextStepDueDate;
 @property (strong, nonatomic) NSString *note;
 @property (strong, nonatomic) NSString *priority;
 

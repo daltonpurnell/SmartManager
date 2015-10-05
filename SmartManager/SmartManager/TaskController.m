@@ -24,9 +24,9 @@
 #pragma mark - Create
 
 - (void) createTaskWithName:(NSString *)name
-                     dueDate:(NSDate *)dueDate
+                     dueDate:(NSString *)dueDate
                     nextStep:(NSString *)nextStep
-             nextStepDueDate:(NSDate *)nextStepDueDate
+             nextStepDueDate:(NSString *)nextStepDueDate
                         note:(NSString *)note
                     priority:(NSString *)priority
                  forEmployee:(Employee *)employee completion:(void (^)(BOOL, Task *))completion {
