@@ -10,7 +10,7 @@
 #import "Appearance.h"
 #import "EmployeeController.h"
 
-@interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource, textButtonTappedDelegate, emailButtonTappedDelegate>
+@interface MainTableViewController () <UITableViewDelegate, UITableViewDataSource, textButtonTappedDelegate, emailButtonTappedDelegate, addTaskButtonTappedDelegate>
 
 @property (strong, nonatomic) CustomExpandingCell *customCell;
 @property (strong, nonatomic) NSString *savedEmail;
@@ -111,6 +111,7 @@
     customCell.indexPath = indexPath;
     customCell.delegate = self;
     customCell.emailDelegate = self;
+    customCell.addTaskDelegate = self;
     
     return customCell;
 }
@@ -455,6 +456,14 @@
 
 
 
+#pragma mark - add task delegate method
+
+-(void)addTaskButtonTapped:(NSIndexPath *)indexPath {
+    
+// save the selected employee to the employee property and pass it to the add task vc
+    self.employee = [[EmployeeController sharedInstance].employees objectAtIndex:indexPath.row];
+}
+
 
 
 #pragma mark - email delegate method
@@ -503,14 +512,21 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"showAddTask"]) {
+        UINavigationController *navController = [segue destinationViewController];
+        AddTaskViewController *addTaskViewController = navController.viewControllers.firstObject;
+    
+        // Pass the selected object to the new view controller.
+        self.employee = addTaskViewController.employee;
+    
+    }
 }
-*/
+
 
 @end

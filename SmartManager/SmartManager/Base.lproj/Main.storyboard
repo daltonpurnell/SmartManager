@@ -278,7 +278,7 @@
                                             <state key="normal" backgroundImage="SMART-add-button"/>
                                             <connections>
                                                 <action selector="addTaskButtonTapped:" destination="V40-vh-u2E" eventType="touchUpInside" id="caI-jB-qdr"/>
-                                                <segue destination="FKw-zE-sN0" kind="showDetail" id="RfU-DI-mBd"/>
+                                                <segue destination="FKw-zE-sN0" kind="showDetail" identifier="showAddTask" id="RfU-DI-mBd"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyV-EQ-b6x">

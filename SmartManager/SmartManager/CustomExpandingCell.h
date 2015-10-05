@@ -15,11 +15,13 @@
 
 @protocol textButtonTappedDelegate;
 @protocol emailButtonTappedDelegate;
+@protocol addTaskButtonTappedDelegate;
 
 
 @interface CustomExpandingCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) id <textButtonTappedDelegate>delegate;
 @property (nonatomic, strong) id <emailButtonTappedDelegate>emailDelegate;
+@property (nonatomic, strong) id <addTaskButtonTappedDelegate>addTaskDelegate;
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tasksTableView;
@@ -29,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *textButton;
 @property (weak, nonatomic) IBOutlet UIButton *addTaskButton;
 @property (weak, nonatomic) IBOutlet PFImageView *photo;
+@property (nonatomic, strong) NSArray *tasks;
 
 @property (nonatomic, strong) Employee *employee;
 @property (strong, nonatomic) NSIndexPath *indexPath;
@@ -48,5 +51,13 @@
 @protocol emailButtonTappedDelegate <NSObject>
 
 - (IBAction)emailButtonTapped:(NSIndexPath *)indexPath;
+
+@end
+
+
+
+@protocol addTaskButtonTappedDelegate <NSObject>
+
+- (IBAction)addTaskButtonTapped:(NSIndexPath *)indexPath;
 
 @end

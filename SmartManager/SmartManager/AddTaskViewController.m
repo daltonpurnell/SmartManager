@@ -64,6 +64,8 @@
     self.notesTextView.layer.shadowRadius = 1.0;
     self.notesTextView.clipsToBounds = NO;
     
+    self.taskNameTextField.delegate = self;
+    
 }
 
 - (IBAction)doneButtonTapped:(id)sender {
@@ -78,7 +80,7 @@
         self.priority = @"3";
     }
     
-    if (!self.taskNameTextField.text) {
+    if ([self.taskNameTextField.text  isEqual: @""]) {
         
         // alert
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please enter a name for this task" preferredStyle:UIAlertControllerStyleAlert];
@@ -86,7 +88,7 @@
         [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
         
-    } else if (!self.taskDueDateLabel.text) {
+    } else if ([self.taskDueDateLabel.text  isEqual: @""]) {
         
         // alert
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please choose a due date for this task" preferredStyle:UIAlertControllerStyleAlert];
@@ -94,7 +96,7 @@
         [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
         
-    } else if (!self.nextStepDueDateLabel.text) {
+    } else if ([self.nextStepDueDateLabel.text  isEqual: @""]) {
         
         // alert
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please choose a due date for this task's next step" preferredStyle:UIAlertControllerStyleAlert];
@@ -121,6 +123,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+    
+}
 
 /*
 #pragma mark - Navigation

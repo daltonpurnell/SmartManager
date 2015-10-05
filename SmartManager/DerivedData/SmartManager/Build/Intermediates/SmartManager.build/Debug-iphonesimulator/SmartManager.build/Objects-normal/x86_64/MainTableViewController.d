@@ -50,4 +50,5 @@ dependencies: \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/Appearance.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AppDelegate.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/AddTaskViewController.h \
+  /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/TaskController.h \
   /Users/djp1989/Documents/Development/PersonalProjects/SmartManager/SmartManager/SmartManager/SecondViewController.h

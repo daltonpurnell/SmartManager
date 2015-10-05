@@ -40,6 +40,13 @@
     if (self.photo.file) {
         self.photo.file = self.employee.photo;
     }
+    
+//    [[TaskController sharedInstance]loadTasksFromParseForEmployee:self.employee completion:^(NSArray *tasks, NSError *error) {
+//
+//    tasks = self.tasks
+//    NSLog(@"Tasks loaded from Parse");
+//    }];
+    
 }
 
 
@@ -55,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+    return self.tasks.count;
 }
 
 
@@ -139,6 +146,8 @@
 - (IBAction)addTaskButtonTapped:(id)sender {
     
     // this is done in storyboard
+    [self.addTaskDelegate addTaskButtonTapped:self.indexPath];
+
 }
 
 
