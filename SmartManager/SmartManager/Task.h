@@ -21,7 +21,7 @@
 @property (strong, nonatomic) NSString *nextStep;
 @property (strong, nonatomic) NSDate *nextStepDueDate;
 @property (strong, nonatomic) NSString *note;
-@property (strong, nonatomic) NSNumber *priority;
+@property (strong, nonatomic) NSString *priority;
 
 + (NSString *)parseClassName;
 

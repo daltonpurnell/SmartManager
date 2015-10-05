@@ -28,7 +28,7 @@
                     nextStep:(NSString *)nextStep
              nextStepDueDate:(NSDate *)nextStepDueDate
                         note:(NSString *)note
-                    priority:(NSNumber *)priority
+                    priority:(NSString *)priority
                  forEmployee:(Employee *)employee completion:(void (^)(BOOL, Task *))completion {
     
     Task *task = [Task object];

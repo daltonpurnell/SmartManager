@@ -585,6 +585,7 @@
                         <outlet property="nextStepDueDateLabel" destination="yVg-To-hDz" id="A5i-cD-F0c"/>
                         <outlet property="nextStepTextView" destination="2Ol-fA-a7X" id="QXP-6j-xqe"/>
                         <outlet property="notesTextView" destination="4mi-cq-EEI" id="WaD-Rx-i0n"/>
+                        <outlet property="prioritySegmentedControl" destination="it8-Dd-JRa" id="X7G-AR-3ib"/>
                         <outlet property="taskDueDateLabel" destination="bd4-I9-AEq" id="9FK-TR-ai9"/>
                         <outlet property="taskNameTextField" destination="cVH-WC-PPo" id="SUW-Ty-4YW"/>
                     </connections>

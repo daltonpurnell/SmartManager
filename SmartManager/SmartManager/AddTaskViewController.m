@@ -68,15 +68,51 @@
 
 - (IBAction)doneButtonTapped:(id)sender {
     
+    if (self.prioritySegmentedControl.selectedSegmentIndex == 0) {
+        self.priority = @"1";
+    } else if (self.prioritySegmentedControl.selectedSegmentIndex == 1) {
+        
+        self.priority = @"2";
+    } else if (self.prioritySegmentedControl.selectedSegmentIndex == 2) {
+        
+        self.priority = @"3";
+    }
     
+    if (!self.taskNameTextField.text) {
+        
+        // alert
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please enter a name for this task" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    } else if (!self.taskDueDateLabel.text) {
+        
+        // alert
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please choose a due date for this task" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    } else if (!self.nextStepDueDateLabel.text) {
+        
+        // alert
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Please choose a due date for this task's next step" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    } else {
+        
     
-// create task
-//    [TaskController sharedInstance]createTaskWithName:self.taskNameTextField.text dueDate:self.taskDueDateLabel.text nextStep:self.nextStepTextView.text nextStepDueDate:self.nextStepDueDateLabel.text note:self.notesTextView.text priority:<#(NSNumber *)#> forEmployee:self.employee completion:^(BOOL succeeded, Task *task) {
-//        
-//        NSLog(@"Successfully saved to Parse");
-//    }
-//
+    [[TaskController sharedInstance]createTaskWithName:self.taskNameTextField.text dueDate:self.taskDueDateLabel.text nextStep:self.nextStepTextView.text nextStepDueDate:self.nextStepDueDateLabel.text note:self.notesTextView.text priority:self.priority forEmployee:self.employee completion:^(BOOL succeeded, Task *task) {
+        NSLog(@"Successfully saved to Parse");
+    }];
+
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    }
+
 }
 
 
