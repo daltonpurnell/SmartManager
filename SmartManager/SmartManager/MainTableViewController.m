@@ -21,9 +21,13 @@
 @property (strong, nonatomic) NSIndexPath *selectedCellIndexPath;
 @property (strong, nonatomic) PFFile *savedPhoto;
 
+
 @end
 
 @implementation MainTableViewController
+
+BOOL isTapped;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,7 +88,22 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated {
     
+    
+    [[EmployeeController sharedInstance]loadEmployeesFromParse:^(NSError *error) {
+        if (!error) {
+            [self.tableView reloadData];
+        } else {
+            
+            NSLog(@"%@", error);
+        }
+    }];
+    
+    
+}
+
+
 
 
 #pragma mark - Table view data source
@@ -95,10 +114,14 @@
     return 1;
 }
 
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return [EmployeeController sharedInstance].employees.count;
 }
+
 
 
 
@@ -116,9 +139,12 @@
     return customCell;
 }
 
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSIndexPath *previousSelectedIndexPath = self.selectedCellIndexPath;  // <- save previously selected cell
     self.selectedCellIndexPath = indexPath;
+    isTapped = YES;
     if (previousSelectedIndexPath) { // <- reload previously selected cell (if not nil)
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:previousSelectedIndexPath]
                          withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -126,6 +152,7 @@
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:self.selectedCellIndexPath]
                      withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
 
 
 #pragma mark - table view delegate

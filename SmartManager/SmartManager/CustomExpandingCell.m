@@ -145,7 +145,6 @@
 
 - (IBAction)addTaskButtonTapped:(id)sender {
     
-    // this is done in storyboard
     [self.addTaskDelegate addTaskButtonTapped:self.indexPath];
 
 }

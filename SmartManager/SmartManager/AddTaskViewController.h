@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TaskController.h"
 
-@interface AddTaskViewController : UIViewController <UITextFieldDelegate>
+@interface AddTaskViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *taskNameTextField;
 @property (weak, nonatomic) IBOutlet UIButton *NextStepDueDateButton;
 @property (weak, nonatomic) IBOutlet UITextView *nextStepTextView;

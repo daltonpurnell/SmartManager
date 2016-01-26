@@ -65,8 +65,179 @@
     self.notesTextView.clipsToBounds = NO;
     
     self.taskNameTextField.delegate = self;
+    self.nextStepTextView.delegate = self;
+    self.notesTextView.delegate = self;
+
     
 }
+
+
+
+#pragma mark - date pickers
+
+- (void)changeDate:(UIDatePicker *)sender {
+    NSLog(@"New Pickup Date: %@", sender.date);
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *date = sender.date;
+    [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    self.taskDueDateLabel.text = [NSString stringWithFormat:@"Task Due Date: %@", dateString];
+}
+
+- (void)removeViews:(id)object {
+    [[self.view viewWithTag:9] removeFromSuperview];
+    [[self.view viewWithTag:10] removeFromSuperview];
+    [[self.view viewWithTag:11] removeFromSuperview];
+    [[self.view viewWithTag:12] removeFromSuperview];
+}
+
+- (void)dismissDatePicker:(id)sender {
+    CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height, self.view.frame.size.width, 44);
+    CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height+44, self.view.frame.size.width, 216);
+    CGRect blurViewTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216);
+    
+    [UIView beginAnimations:@"MoveOut" context:nil];
+    [self.view viewWithTag:9].alpha = 0;
+    [self.view viewWithTag:10].frame = datePickerTargetFrame;
+    [self.view viewWithTag:11].frame = toolbarTargetFrame;
+    [self.view viewWithTag:12].frame = blurViewTargetFrame;
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(removeViews:)];
+    [UIView commitAnimations];
+    
+}
+
+- (IBAction)firstDateButtonTapped:(id)sender {
+    
+    if ([self.view viewWithTag:9]) {
+        return;
+    }
+    CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height-216-44, self.view.frame.size.width, 44);
+    CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216);
+    CGRect blurViewTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216);
+    
+    UIView *darkView = [[UIView alloc] initWithFrame:self.view.bounds];
+    darkView.alpha = 0;
+    darkView.backgroundColor = [UIColor blackColor];
+    darkView.tag = 9;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDatePicker:)];
+    [darkView addGestureRecognizer:tapGesture];
+    [self.view addSubview:darkView];
+    
+    UIImageView *blurView = [UIImageView new];
+    [blurView setFrame:CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216)];
+    blurView.backgroundColor = [UIColor colorWithRed:233/255.0 green:236/255.0 blue:243/255.0 alpha:1];
+    blurView.tag = 12;
+    [self.view addSubview:blurView];
+    
+    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height+44, self.view.frame.size.width, 216)];
+    datePicker.tag = 10;
+    [datePicker addTarget:self action:@selector(changeDate:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:datePicker];
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.frame.size.width, 44)];
+    toolBar.tag = 11;
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissDatePicker:)];
+    [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
+    [self.view addSubview:toolBar];
+    
+    [UIView beginAnimations:@"MoveIn" context:nil];
+    toolBar.frame = toolbarTargetFrame;
+    datePicker.frame = datePickerTargetFrame;
+    blurView.frame = blurViewTargetFrame;
+    darkView.alpha = 0.5;
+    [UIView commitAnimations];
+    
+    [self changeDate:datePicker];
+}
+
+
+
+- (void)changeReturnDate:(UIDatePicker *)sender {
+    NSLog(@"New Return Date: %@", sender.date);
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDate *date = sender.date;
+    [dateFormatter setDateFormat:@"MMM dd, yyyy hh:mm"];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+    self.nextStepDueDateLabel.text = [NSString stringWithFormat:@"Next Step Due Date: %@", dateString];
+}
+
+- (void)removeReturnViews:(id)object {
+    [[self.view viewWithTag:9] removeFromSuperview];
+    [[self.view viewWithTag:10] removeFromSuperview];
+    [[self.view viewWithTag:11] removeFromSuperview];
+    [[self.view viewWithTag:12] removeFromSuperview];
+}
+
+- (void)dismissReturnDatePicker:(id)sender {
+    CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height, self.view.frame.size.width, 44);
+    CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height+44, self.view.frame.size.width, 216);
+    CGRect blurViewTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216);
+    
+    [UIView beginAnimations:@"MoveOut" context:nil];
+    [self.view viewWithTag:9].alpha = 0;
+    [self.view viewWithTag:10].frame = datePickerTargetFrame;
+    [self.view viewWithTag:11].frame = toolbarTargetFrame;
+    [self.view viewWithTag:12].frame = blurViewTargetFrame;
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(removeReturnViews:)];
+    [UIView commitAnimations];
+    
+}
+
+- (IBAction)secondDateButtonTapped:(id)sender {
+    
+    if ([self.view viewWithTag:9]) {
+        return;
+    }
+    CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height-216-44, self.view.frame.size.width, 44);
+    CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216);
+    CGRect blurViewTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216);
+    
+    UIView *darkView = [[UIView alloc] initWithFrame:self.view.bounds];
+    darkView.alpha = 0;
+    darkView.backgroundColor = [UIColor blackColor];
+    darkView.tag = 9;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissReturnDatePicker:)];
+    [darkView addGestureRecognizer:tapGesture];
+    [self.view addSubview:darkView];
+    
+    UIImageView *blurView = [UIImageView new];
+    [blurView setFrame:CGRectMake(0, self.view.bounds.size.height-216, self.view.frame.size.width, 216)];
+    blurView.tag = 12;
+    blurView.backgroundColor = [UIColor colorWithRed:233/255.0 green:236/255.0 blue:243/255.0 alpha:1];
+    [self.view addSubview:blurView];
+    
+    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height+44, self.view.frame.size.width, 216)];
+    datePicker.tag = 10;
+    [datePicker addTarget:self action:@selector(changeReturnDate:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:datePicker];
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.frame.size.width, 44)];
+    toolBar.tag = 11;
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissReturnDatePicker:)];
+    [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
+    [self.view addSubview:toolBar];
+    
+    [UIView beginAnimations:@"MoveIn" context:nil];
+    toolBar.frame = toolbarTargetFrame;
+    datePicker.frame = datePickerTargetFrame;
+    blurView.frame = blurViewTargetFrame;
+    darkView.alpha = 0.5;
+    [UIView commitAnimations];
+    
+    [self changeReturnDate:datePicker];
+
+}
+
+
+
+
 
 - (IBAction)doneButtonTapped:(id)sender {
     
@@ -128,6 +299,10 @@
     [textField resignFirstResponder];
     return YES;
     
+}
+
+- (void) textViewDidBeginEditing:(UITextView *) textView {
+    [textView setText:@""];
 }
 
 /*
